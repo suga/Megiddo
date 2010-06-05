@@ -1,32 +1,7 @@
-@todo
+Megiddo é um Framework MVC.
+Megiddo hoje tem suporte a I18n.
 
-I18n:
-    Criar suporte a i18n no projeto
-    
-Log:
-  Cria na classe log um metodo que loga e envia email : setLogAndSendEmail(); 
+---------
 
-Refactoring:
-    Melhorar o sistema de configurações, talvez usando Yml ou xml
-    Refatoração de  nomes e estrutura de diretórios se for preciso.
-    Tentar fazer com que a Action não extenda ninguém.
-    
-Banco de Dados:
-    Certificar que o projeto rode tanto em mysql quanto em postgree
-    Melhorar a classe Criteria
-    Verificar se a classe Sql precisa de melhorias
-    
-Cache:
-    Melhorar a classe de cache : deletar cache, setar time, metodo que verifica se é para usar cache.
-    Para pensar: Em partes totalmente dinamicas como Banners por exemplo...como ficaria o cache??
-
-install:
-    Criar um install para o projeto, aonde será criado o banco de dados e as tabelas
-    
-Documentação:    
-    Criar uma documentação (pt_BR, US, ES), explicando métodos e exemplos de como usar cada um para que o projeto seja de fácil utilização por terceiros, após disponível para download.
-    
-Projeto:    
-    Adicionar o projeto no SVN para que outras pessoas possam colaborar para o aperfeiçoamento do mesmo, mantendo sempre os créditos.
-    Criar um blog utilizando esse MVC para divulgar o sistema e seus programadores. Marco, Otávio, Hélio, Lucas .
-    Criar um CMS utilizando esse MVC ....e criar um blog, site ou portal utilizando ele para divulgar o CMS e seus programadores. Marco, Otávio, Hélio, Lucas .
+Megiddo is an MVC Framework.
+Megiddo now has support I18n.
