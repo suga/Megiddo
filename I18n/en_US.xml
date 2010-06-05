@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<en_US>
+  <item idTagI18n="2">
+    <tag>gato</tag>
+    <i18n>cat</i18n>
+  </item>
+  <item idTagI18n="4">
+    <tag>Cachorro</tag>
+    <i18n>dog</i18n>
+  </item>
+  <item idTagI18n="6">
+    <tag>no.layout.test</tag>
+    <i18n>Test without layout</i18n>
+  </item>
+</en_US>
