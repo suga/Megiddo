@@ -24,6 +24,7 @@ class Criteria {
     const LESS_EQUAL = '<=';
     const NOT_EQUAL = "!=";
     const LIKE = 'LIKE';
+    const ILIKE = 'ILIKE';
     const NOT_LIKE = 'NOT LIKE';
     const ORDER_BY_DESC = 'DESC';
     const ORDER_BY_ASC = 'ASC';
@@ -65,6 +66,12 @@ class Criteria {
         if(is_string($value) && $type != self::COLUMN_TYPE){
             $value = "'" . $value . "'";
         }
+        if (is_bool($value) && $value) {
+            $value = 'true';
+        }
+        if (is_bool($value) && !$value) {
+            $value = 'false';
+        }
         switch($condition){
             case null:
             case self::EQUAL:
@@ -85,9 +92,12 @@ class Criteria {
             case Criteria::NOT_EQUAL:
                 $str = $field .' '. self::NOT_EQUAL .' '. $value ;
                 break;
-             case Criteria::LIKE:
+            case Criteria::LIKE:
                 $str = $field .' '. self::LIKE .' '. $value ;
-                break;    
+                break;
+            case Criteria::ILIKE:
+                $str = $field .' '. self::ILIKE .' '. $value ;
+                break;       
             default:
                 $str = $field .' '. self::EQUAL .' '. $value ;
                 break;
@@ -181,7 +191,7 @@ class Criteria {
      *
      */
     public function get() {
-        $where = $this->dry($this->strWhere);
+        $where = $this->dry(empty($this->strWhere) ? '' : $this->strWhere);
         $join = $this->mountJoin();
         $limitOffSet = $this->mountLimitOffset();
         
@@ -194,11 +204,13 @@ class Criteria {
      */
     private function mountLimitOffset() {
         $limitOffset = '';
-        if ($this->limit)
+        if (!empty($this->limit)) {
             $limitOffset = " LIMIT $this->limit";
+        }
         
-        if ($this->offset)
+        if (!empty($this->offset)) {
             $limitOffset .= " OFFSET $this->offset";
+        }
         
         return $limitOffset;
     }
@@ -208,7 +220,7 @@ class Criteria {
      * @return string
      */
     private function mountJoin() {
-        
+        $join = null;
         $iterator = $this->join->getIterator();
         while ($iterator->valid()) {
             $on = null;

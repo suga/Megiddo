@@ -19,11 +19,11 @@ class LogPeer {
     private $isError;
     
     const TABLE = 'log';
-    const ID = '.id';
-    const DATE = '.date';
-    const FILE = '.file';
-    const MESSAGE = '.message';
-    const IS_ERROR = '.is_error';
+    const ID = 'id';
+    const DATE = 'date';
+    const FILE = 'file';
+    const MESSAGE = 'message';
+    const IS_ERROR = 'is_error';
 
     //Methods Set
     
@@ -133,13 +133,15 @@ class LogPeer {
      * @return bollean
      */
     public function save() {
-        $data = array(self::TABLE . self::ID => $this->getId(), self::TABLE . self::DATE => $this->getDate(), self::TABLE . self::FILE => $this->getFile(), self::TABLE . self::MESSAGE => $this->getMessage(), self::TABLE . self::IS_ERROR => $this->getIsError());
+        $data = array(self::ID => self::getId(), self::DATE => self::getDate(), self::FILE => self::getFile(), self::MESSAGE => self::getMessage(), self::IS_ERROR => self::getIsError());
         $sql = new Sql();
         
         if (is_null($this->getId())) {
-            return $sql->insert($data, self::TABLE);
+            $sql->insert($data, self::TABLE);
+            $this->id = $sql->lastRow(self::TABLE)->id;
+            return true;
         } else {
-            $pk = array(self::TABLE . self::ID => $this->getId());
+            $pk = array(self::ID => self::getId());
             
             return $sql->update($data, self::TABLE, $pk);
         }
@@ -151,7 +153,7 @@ class LogPeer {
      * @return bollean
      */
     public function delete() {
-        $pk = array(self::TABLE . self::ID => $this->getId());
+        $pk = array(self::ID => $this->getId());
         
         $sql = new Sql();
         return $sql->delete(self::TABLE, $pk);

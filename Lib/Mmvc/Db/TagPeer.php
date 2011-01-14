@@ -12,8 +12,8 @@ class TagPeer {
     private $tag;
     
     const TABLE = 'tag';
-    const ID_TAG = '.id_tag';
-    const TAG = '.tag';
+    const ID_TAG = 'id_tag';
+    const TAG = 'tag';
 
     //Methods Set
     
@@ -78,13 +78,15 @@ class TagPeer {
      * @return bollean
      */
     public function save() {
-        $data = array(self::TABLE . self::ID_TAG => $this->getIdTag(), self::TABLE . self::TAG => $this->getTag());
+        $data = array(self::ID_TAG => $this->getIdTag(), self::TAG => $this->getTag());
         $sql = new Sql();
         
         if (is_null($this->getIdTag())) {
-            return $sql->insert($data, self::TABLE);
+            $sql->insert($data, self::TABLE);
+            $this->idTag = $sql->lastRow(self::TABLE)->id_tag;
+            return true;
         } else {
-            $pk = array(self::TABLE . self::ID_TAG => $this->getIdTag());
+            $pk = array(self::ID_TAG => $this->getIdTag());
             
             return $sql->update($data, self::TABLE, $pk);
         }
@@ -96,7 +98,7 @@ class TagPeer {
      * @return bollean
      */
     public function delete() {
-        $pk = array(self::TABLE . self::ID_TAG => $this->getIdTag());
+        $pk = array(self::ID_TAG => $this->getIdTag());
         $sql = new Sql();
         return $sql->delete(self::TABLE, $pk);
     }

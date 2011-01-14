@@ -6,6 +6,7 @@
  * Control template
  * Last revision : 13/02/2010
  * Module: Default
+ * exmples
  */
 class ActionDefault extends Url {
 
@@ -14,6 +15,7 @@ class ActionDefault extends Url {
     	//$objContent->getObjTemplate()->setLayout('Red');
     	//$objContent->getObjTemplate()->setLayout('Redkkk');
         $log = new Log();
+        $test = $log->retriveByPk(1);
         $this->var1 = $log->retriveByPk(1);
         $this->var2 = $log->retriveByDate('2010-02-15');
         $this->var3 = $log->retriveByError(0);
@@ -83,7 +85,7 @@ class ActionDefault extends Url {
 }
 
     public function endExecute() {
-        echo '<br>321';
+       // echo '<br>321';
     }
 
     public function executeAttribute(Content &$objContent) {
@@ -102,6 +104,32 @@ class ActionDefault extends Url {
     	
     	// EXP: 02
     	var_dump(sfYaml::load(Headers::linkToYml('Default','config.yml')));
+    	return ViewActions::VIEW_NONE;
+    }
+    
+    public function executeBase(){
+        var_dump(sfYaml::load(PATH.'Config/schema.yml'));
+        return ViewActions::VIEW_NONE;
+    }
+    
+    public function executePdf(){  
+//        if(!headers_sent()) {            
+//            header('Content-Type: application/force-download');
+//            header('Content-Disposition: attachment; filename="export.pdf"');                     
+//        }
+          	
+    	$pdf = new sfTCPDF();
+    	$pdf->AddPage();
+        $pdf->SetFont('courier',null,'14');
+        $html = <<<EOD
+<h1>Welcome to <a href="http://www.tcpdf.org" style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;<span style="color:black;">TC</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
+<i>This is the first example of TCPDF library.</i>
+<p>This text is printed using the <i>writeHTMLCell()</i> method but you can also use: <i>Multicell(), writeHTML(), Write(), Cell() and Text()</i>.</p>
+<p>Please check the source code documentation and other examples for further information.</p>
+<p style="color:#CC0000;">TO IMPROVE AND EXPAND TCPDF I NEED YOUR SUPPORT, PLEASE <a href="http://sourceforge.net/donate/index.php?group_id=128076">MAKE A DONATION!</a></p>
+EOD;
+    	$pdf->writeHTML($html);
+    	$pdf->Output('example_001.pdf', 'I');
     	return ViewActions::VIEW_NONE;
     }
 }

@@ -1,7 +1,16 @@
 Megiddo é um Framework MVC.
 Megiddo hoje tem suporte a I18n.
-
+Schema em Yml
+PhpMailer integrado
+sfTCPDF integrado
+ORM própria - buildBase.php
+Banco de dados suportados -> mysq e pgsql
 ---------
 
 Megiddo is an MVC Framework.
-Megiddo now has support I18n.
+Megiddo now has support for i18n.
+Schema in YML
+PHPMailer integrated
+sfTCPDF integrated
+ORM itself - buildBase.php
+Supported databases -> mysq and pgsql

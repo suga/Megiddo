@@ -50,23 +50,23 @@ class Url {
      * @return string
      */
     public function getAction() {
-        if(empty($this->gets[1])){
-            $this->gets[1] = ACTION_DEFAULT;
+        if (empty($this->gets[1])) {
+            $this->gets[1] = strtolower(ACTION_DEFAULT);
         }
-        $gets = explode("/", str_replace('=', '/', str_replace('&', '/', str_replace('?', '/', $this->gets[1]))));      
-        $this->gets[1] = $gets[0];  
+        $gets = explode("/", str_replace('=', '/', str_replace('&', '/', str_replace('?', '/', $this->gets[1]))));
+        $this->gets[1] = $gets[0];
         $array = array();
         $array[0] = $this->gets[0];
         $array[1] = $this->gets[1];
-        $array[2] = $gets[1];
-        foreach($this->gets as $key => $value){
-            if($key == 0 || $key == 1){
+        $array[2] = array_key_exists(1, $gets) ? $gets[1] : null;
+        foreach ($this->gets as $key => $value) {
+            if ($key == 0 || $key == 1) {
                 continue;
             }
             $array[] = $value;
         }
         $this->gets = $array;
-        return $this->gets[1];      
+        return $this->gets[1];
     }
 
     /**
@@ -74,8 +74,8 @@ class Url {
      * @return array
      */
     private function getArrayUrl() {
-        $this->post = unserialize($_SESSION['POST']);
-        $this->get = unserialize($_SESSION['GET']);
+        $this->post = array_key_exists('POST', $_SESSION) ? unserialize($_SESSION['POST']) : null;
+        $this->get = array_key_exists('GET', $_SESSION) ? unserialize($_SESSION['GET']) : null;
         
         foreach ($this->gets as $key => $value) {
             //$this->gets[$key] = utf8_decode(urldecode($value));
@@ -83,7 +83,7 @@ class Url {
             $this->gets[$key] = $value;
         }
         
-        if (count($this->post) >= 1) {
+        if (is_array($this->post) && count($this->post) >= 1) {
             $key++;
             foreach ($this->post as $keyPost => $value) {
                 $this->gets[$key++] = urldecode($keyPost);
@@ -92,7 +92,7 @@ class Url {
             }
         }
         
-        if (count($this->get) >= 1) {
+        if (is_array($this->get) && count($this->get) >= 1) {
             $key++;
             foreach ($this->get as $keyPost => $value) {
                 $this->gets[$key++] = urldecode($keyPost);

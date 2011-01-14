@@ -33,7 +33,7 @@ class Template {
      * @return String
      */
     public static function includeTemplate($module, $file) {
-        $host = $_SERVER['HTTP_HOST'];
+        $host = array_key_exists('HTTP_HOST', $_SERVER) ? $_SERVER['HTTP_HOST'] : null;
         $fileName = PATH . PATH_TEMPLATES . $module . "/" . PATH_INCLUDES . "/" . $file;
         
         if (!file_exists($fileName)) {

@@ -18,10 +18,10 @@ class TagI18nPeer {
     private $tag;
     
     const TABLE = 'tag_i18n';
-    const ID_TAG_I18N = '.id_tag_i18n';
-    const ID_TAG = '.id_tag';
-    const ISOLANG = '.isolang';
-    const TRANSLATE = '.text';
+    const ID_TAG_I18N = 'id_tag_i18n';
+    const ID_TAG = 'id_tag';
+    const ISOLANG = 'isolang';
+    const TRANSLATE = 'text';
 
     //Methods Set
     
@@ -128,13 +128,16 @@ class TagI18nPeer {
      * @return bollean
      */
     public function save() {
-        $data = array(self::TABLE . self::ID_TAG_I18N => $this->getIdTagI18n(), self::TABLE . self::ID_TAG => $this->getIdTag(), self::TABLE . self::ISOLANG, self::TABLE . self::TRANSLATE);
+        $data = array(self::ID_TAG_I18N => $this->getIdTagI18n(), self::ID_TAG => $this->getIdTag(), self::ISOLANG, self::TRANSLATE);
         $sql = new Sql();
         
         if (is_null($this->getIdTagI18n())) {
-            return $sql->insert($data, self::TABLE);
+            $sql->insert($data, self::TABLE);
+            $this->idTagI18n = $sql->lastRow(self::TABLE)->id_tag_i18n;
+            $this->idTag = $sql->lastRow(self::TABLE)->id_tag;
+            return true;
         } else {
-            $pk = array(self::TABLE . self::ID_TAG_I18N => $this->getIdTagI18n());
+            $pk = array(self::ID_TAG_I18N => $this->getIdTagI18n());
             
             return $sql->update($data, self::TABLE, $pk);
         }
@@ -146,7 +149,7 @@ class TagI18nPeer {
      * @return bollean
      */
     public function delete() {
-        $pk = array(self::TABLE . self::ID_TAG_I18N => $this->getIdTagI18n());
+        $pk = array(self::ID_TAG_I18N => $this->getIdTagI18n());
         $sql = new Sql();
         return $sql->delete(self::TABLE, $pk);
     }

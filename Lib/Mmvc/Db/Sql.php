@@ -28,12 +28,20 @@ class Sql {
     const SET = "SET";
     const WHERE = "WHERE";
     const DELETE = "DELETE FROM";
+    const ORDER_BY = "ORDER BY";
+    const ASC = "ASC";
+    const DESC = "DESC";
 
     /**
      * Initializes the class and instantiates the object PDO
      */
     public function __construct() {
-        $this->pdo = new PDO(DNS, USER_DB, PASSWORD_DB);
+        try {
+            $this->pdo = new PDO(DNS, USER_DB, PASSWORD_DB);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            exit();
+        }
     }
 
     /**
@@ -88,7 +96,7 @@ class Sql {
         }
         
         $this->table = $table;
-        
+        $test = $this->mountSqlInsert($array);
         return $this->executePdo($this->mountSqlInsert($array));
     }
 
@@ -126,12 +134,40 @@ class Sql {
     }
 
     /**
+     * make a insert the database
+     * @param string $table
+     * @return stdClass
+     */
+    public function lastRow($table) {
+        if (empty($table)) {
+            return false;
+        }
+        
+        $this->table = $table;
+        
+        try {
+            $this->pdo->beginTransaction();
+            $execute = $this->pdo->prepare($this->mountLastRow());
+            $execute->execute();
+            $this->pdo->commit();
+            if ($execute->rowCount() == 0) {
+                return false;
+            }
+            $stdClass = $execute->fetch(PDO::FETCH_OBJ);
+            return $stdClass;
+        } catch (PDOException $e) {
+            $this->pdo->rollBack();
+            return false;
+        }
+    }
+
+    /**
      * Mount the Query select
      * @param Criteria $criteria
      * @return string
      */
     private function mountSqlSelect(Criteria $criteria) {
-        return self::SELECT . " * " . self::SELECT_FROM . " " . $this->table . $criteria->get();
+        return self::SELECT . " * " . self::SELECT_FROM . $this->toggleTableDb() . $criteria->get();
     }
 
     /**
@@ -146,6 +182,12 @@ class Sql {
         $mountFields = "(";
         $mountValues = "(";
         foreach ($array as $field => $value) {
+            if (!is_null($value) && is_bool($value) && $value) {
+                $value = $this->toggleTypeDb($value);
+            }
+            if (!is_null($value) && is_bool($value) && !$value) {
+                $value = $this->toggleTypeDb($value);
+            }
             if (!is_null($value)) {
                 $mountFields .= $field . ",";
                 $mountValues .= "'$value'" . ",";
@@ -156,7 +198,7 @@ class Sql {
         $mountFields .= ")";
         $mountValues .= ")";
         
-        return self::INSERT . " " . $this->table . " " . $mountFields . " " . self::VALUES . " " . $mountValues;
+        return self::INSERT . $this->toggleTableDb() . $mountFields . " " . self::VALUES . " " . $mountValues;
     
     }
 
@@ -173,6 +215,12 @@ class Sql {
         
         $mountFields = " ";
         foreach ($array as $field => $value) {
+            if (!is_null($value) && is_bool($value) && $value) {
+                $value = $this->toggleTypeDb($value);
+            }
+            if (!is_null($value) && is_bool($value) && !$value) {
+                $value = $this->toggleTypeDb($value);
+            }
             if (!is_null($value)) {
                 $mountFields .= $field . " = '$value'" . ",";
             }
@@ -185,7 +233,7 @@ class Sql {
             $valueWhere = $value;
         }
         
-        return self::UPDATE . " " . $this->table . " " . self::SET . $mountFields . " " . self::WHERE . " " . $fieldWhere . " = " . "\"$valueWhere\"";
+        return self::UPDATE . $this->toggleTableDb() . self::SET . $mountFields . " " . self::WHERE . " " . $fieldWhere . " = " . "'$valueWhere'";
     
     }
 
@@ -204,7 +252,7 @@ class Sql {
             $valueWhere = $value;
         }
         
-        return self::DELETE . " " . $this->table . " " . self::WHERE . " " . $fieldWhere . " = " . "\"$valueWhere\"";
+        return self::DELETE . $this->toggleTableDb() . self::WHERE . " " . $fieldWhere . " = " . "'$valueWhere'";
     }
 
     /**
@@ -215,7 +263,14 @@ class Sql {
             return false;
         }
         $criteria = is_null($criteria) ? '' : $criteria->get();
-        return self::SELECT . " count(*) as totalRecords " . self::SELECT_FROM . " " . $this->table . $criteria;
+        return self::SELECT . " count(*) as total_records " . self::SELECT_FROM . $this->toggleTableDb() . $criteria;
+    }
+
+    /**
+     * Build the query to fetch the last row of table
+     */
+    private function mountLastRow() {
+        return self::SELECT . " * " . self::SELECT_FROM . $this->toggleTableDb() . self::ORDER_BY . " 1 " . self::DESC;
     }
 
     /**
@@ -249,6 +304,7 @@ class Sql {
     /**
      * Running SQL commands through pdo
      * @param string $query
+     * @return boolean
      */
     private function executePdo($query) {
         try {
@@ -262,4 +318,42 @@ class Sql {
             return false;
         }
     }
+
+    /**
+     * Toggle Dbs mysql - pgsql
+     * @param boolean
+     * @return Void
+     */
+    private function toggleTypeDb($value) {
+        switch (TYPE_DB) {
+            case 'mysql' :
+                if ($value) {
+                    return '1';
+                }
+                return '0';
+                break;
+            case 'pgsql' :
+                if ($value) {
+                    return 'true';
+                }
+                return 'false';
+                break;
+        }
+    }
+
+    /**
+     * Toggle Dbs mysql - pgsql
+     * @return String
+     */
+    private function toggleTableDb() {
+        switch (TYPE_DB) {
+            case 'mysql' :
+                return ' '.$this->table.' ';
+                break;
+            case 'pgsql' :
+                return " \"" . $this->table . "\" ";
+                break;
+        }
+    }
+
 }

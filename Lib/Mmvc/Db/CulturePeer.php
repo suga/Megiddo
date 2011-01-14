@@ -12,8 +12,8 @@ class CulturePeer {
     private $default;
     
     const TABLE = 'culture';
-    const ISOLANG = '.isolang';
-    const DEFAULT_CULTURE = '.default';
+    const ISOLANG = 'isolang';
+    const DEFAULT_CULTURE = '"default"';
 
     //Methods Set
     
@@ -31,7 +31,7 @@ class CulturePeer {
      * @param Boollean $default
      */
     public function setDefault($default) {
-        $this->default = (bool)$default;
+        $this->default = $default;
     }
 
     //Methods get
@@ -58,7 +58,7 @@ class CulturePeer {
      * Gets the default value
      */
     public function getDefault() {
-        return $this->default;
+        return (int)$this->default;
     }
 
     /**
@@ -88,13 +88,15 @@ class CulturePeer {
      * @return bollean
      */
     public function save() {
-        $data = array(self::TABLE . self::ISOLANG => $this->getIsoLang(), self::TABLE . self::DEFAULT_CULTURE => $this->getDefault());
+        $data = array(self::ISOLANG => $this->getIsoLang(), self::DEFAULT_CULTURE => $this->getDefault());
         $sql = new Sql();
         
         if (!self::hasCulture($this->getIsoLang())) {
-            return $sql->insert($data, self::TABLE);
+            $sql->insert($data, self::TABLE);
+            $this->isolang = $sql->lastRow(self::TABLE)->isolang;
+            return true;
         } else {
-            $pk = array(self::TABLE . self::ISOLANG => $this->getIsoLang());
+            $pk = array(self::ISOLANG => $this->getIsoLang());
             
             return $sql->update($data, self::TABLE, $pk);
         }
@@ -106,7 +108,7 @@ class CulturePeer {
      * @return bollean
      */
     public function delete() {
-        $pk = array(self::TABLE . self::ISOLANG => $this->getIsoLang());
+        $pk = array(self::ISOLANG => $this->getIsoLang());
         $sql = new Sql();
         return $sql->delete(self::TABLE, $pk);
     }
@@ -119,7 +121,7 @@ class CulturePeer {
     private function ConvertingObject(stdClass $stdClass) {
         $ObjPeer = new Culture();
         $ObjPeer->setIsoLang($stdClass->isolang);
-        $ObjPeer->setDefault($stdClass->default);
+        $ObjPeer->setDefault((boolean)$stdClass->default);
         return $ObjPeer;
     }
 
@@ -143,7 +145,7 @@ class CulturePeer {
      */
     public static function retriveDefaultCulture() {
         $criteria = new Criteria();
-        $criteria->add(self::TABLE . self::DEFAULT_CULTURE, true);
+        $criteria->add(self::DEFAULT_CULTURE, true);
         $criteria->setLimit(1);
         $obj = self::doSelectOne($criteria);
         
@@ -160,7 +162,7 @@ class CulturePeer {
      */
     public static function retriveByPk($isoLang = 'pt_BR') {
         $criteria = new Criteria();
-        $criteria->add(self::TABLE . self::ISOLANG, $isoLang);
+        $criteria->add(self::ISOLANG, $isoLang);
         $criteria->setLimit(1);
         $obj = self::doSelectOne($criteria);
         

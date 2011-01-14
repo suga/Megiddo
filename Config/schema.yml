@@ -1,0 +1,191 @@
+user_document:
+    $doc$: Class responsible for user documentation
+    id_user_document:
+        doc: user document id
+        type: pk
+        obj: UserDocument
+    id_user:
+        doc: user id
+        type: fk
+        obj: User
+    cpf:
+        doc: Docment user
+        type: string
+        size_min: 10
+        size_max: 15
+
+user_email:
+    $doc$: Class responsible for user email
+    id_email:
+        doc: id email
+        type: pk
+        obj: UserEmail
+    id_user:
+        doc: user id
+        type: fk
+        obj: User
+    email:
+        doc: email user
+        type: string
+        size_min: 5
+        size_max: 255
+        
+user_newsletter:
+    $doc$: Class is responsible for informing the user is enabled to receive news letter
+    id_user:
+        doc: user id
+        type: pk
+        obj: User
+    id_email:
+        doc: id user email
+        type: fk
+        obj: UserEmail
+    agree:
+        doc: The user accepts the terms to receive the news letter
+        type: bool
+        
+user_address:
+    $doc$: Class responsible for controlling the addresses of the user
+    id_user_address:
+        doc: user address id
+        type: pk
+        obj: UserAddress
+    id_user:
+        doc: user id
+        type: fk
+        obj: User
+    name_address:
+        doc: identification of the address for the user
+        type: string
+        size_min: 5
+        size_max: 255
+    street:
+        doc: street
+        type: string
+        size_min: 0
+        size_max: 255        
+    complement:
+        doc: Completion of the address
+        type: string
+        size_min: 0
+        size_max: 255
+    district:
+        doc: district
+        type: string
+        size_min: 0
+        size_max: 255
+    id_state:
+        doc: id state
+        type: fk
+        obj: State
+    id_city:
+        doc: id_city
+        type: fk
+        obj: City
+    zip:
+        doc: zip code
+        type: int
+    id_country:
+        doc: id country
+        type: fk
+        obj: Country                                                		                           
+ 
+user_password:
+    $doc$: Class people deemed responsible for the user's password
+    id_user:
+        doc: user id
+        type: pk
+        obj: User
+    user_name:
+        doc: name or nick name of the user
+        type: string
+        size_min: 3
+        size_max: 100
+    password:
+        doc: password
+        type: string
+        size_min: 5
+        size_max: 20
+        
+type_user:
+    $doc$: Class controlling the types of users
+    id_type:
+        doc: id type user
+        type: pk
+        obj: TypeUser
+    type:
+        doc: description type user
+        type: string
+        size_min: 2
+        size_max: 255
+
+user_type:
+    $doc$: Class that relates to your user type
+    id_user_type:
+        doc: id user type
+        type: pk
+        obj: UserType
+    id_user:
+        doc: user id
+        type: fk
+        obj: User
+    id_type:
+        doc: type id
+        type: fk
+        obj: TypeUser
+        
+type_phone:
+    $doc$: Class controlling the types phones
+    id_type_phone:
+        doc: id type phone
+        type: pk
+        obj: TypePhone
+    type:
+        doc: description type phone
+        type: string
+        size_min: 2
+        size_max: 255
+
+user_phone:
+    $doc$: Class responsible for user phone
+    id_user_phone:
+        doc: user phone id
+        type: pk
+        obj: UserPhone
+    id_user:
+        doc: user id
+        type: fk
+        obj: User
+    phone:
+        doc: phone user
+        type: string
+        size_min: 8
+        size_max: 20
+    id_type_phone:
+        doc: type phone id
+        type: fk
+        obj: TypePhone
+    ddi:
+        doc: ddi phone
+        type: int
+        size_min: 2
+        size_max: 2
+    ddd:
+        doc: ddd phone
+        type: int
+        size_min: 2
+        size_max: 2
+        
+user_log:
+    $doc$: Log the actions of users
+    id_user:
+        doc: user id
+        type: pk
+        obj: User
+    date:
+        doc: date action
+        type: string
+    message:
+        doc: message
+        type: string                        
+                                                                                                                                                              

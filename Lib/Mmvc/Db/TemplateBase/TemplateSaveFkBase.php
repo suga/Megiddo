@@ -1,0 +1,1 @@
+$this->[%variable%] = $sql->lastRow(self::TABLE)->[%variableSQL%];

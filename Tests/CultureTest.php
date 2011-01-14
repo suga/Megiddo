@@ -35,8 +35,8 @@ class CultureTest extends PHPUnit_Framework_TestCase {
 
     public function testRetriveDefaultCultureError() {
         $criteria = new Criteria();
-        $criteria->add(CulturePeer::TABLE . CulturePeer::DEFAULT_CULTURE, true);
-        $Culture = new Culture();
+        $Culture = new CulturePeer();
+        $criteria->add(CulturePeer::DEFAULT_CULTURE, true);
         $objCulture = $Culture->doSelectOne($criteria);
         $objCulture->setDefault(false);
         $objCulture->save();
@@ -44,7 +44,7 @@ class CultureTest extends PHPUnit_Framework_TestCase {
         $test = Culture::retriveDefaultCulture();
         
         $criteria->clear();
-        $criteria->add(CulturePeer::TABLE . CulturePeer::ISOLANG, 'pt_BR');
+        $criteria->add(CulturePeer::ISOLANG, 'pt_BR');
         $objCulture = new Culture();
         $objCulture = $objCulture->doSelectOne($criteria);
         $objCulture->setDefault(true);

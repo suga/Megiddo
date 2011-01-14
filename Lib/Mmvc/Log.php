@@ -15,7 +15,7 @@ class Log extends LogPeer {
      */
     public static function retriveByPk($idLog) {
         $criteria = new Criteria();
-        $criteria->add(self::TABLE . self::ID, $idLog);
+        $criteria->add(self::ID, $idLog);
         $criteria->setLimit(1);
         $objLog = new Log();
         return $objLog->doSelectOne($criteria);
@@ -29,8 +29,8 @@ class Log extends LogPeer {
      */
     public static function retriveByDate($date, $limit = null) {
         $criteria = new Criteria();
-        $criteria->add(self::TABLE . self::DATE, $date . '%', Criteria::LIKE);
-        $criteria->addOrderBy(self::TABLE . self::DATE, Criteria::ORDER_BY_DESC);
+        $criteria->add(self::DATE, $date . '%', Criteria::LIKE);
+        $criteria->addOrderBy(self::DATE, Criteria::ORDER_BY_DESC);
         if (!is_null($limit)) {
             $criteria->setLimit($limit);
         }
@@ -46,7 +46,7 @@ class Log extends LogPeer {
      */
     public static function retriveByError($error, $limit = null) {
         $criteria = new Criteria();
-        $criteria->add(self::TABLE . self::IS_ERROR, $error);
+        $criteria->add(self::IS_ERROR, $error);
         if (!is_null($limit)) {
             $criteria->setLimit($limit);
         }

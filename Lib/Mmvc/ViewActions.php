@@ -17,7 +17,7 @@ class ViewActions {
 	 * @return String
 	 */
 	public static function returnNone(){
-		return VIEW_NONE;
+		return self::VIEW_NONE;
 	}
 	
 	/**
@@ -25,7 +25,7 @@ class ViewActions {
 	 * @return String
 	 */
     public static function returnError(){
-        return VIEW_ERROR;
+        return self::VIEW_ERROR;
     }
 	
 	
