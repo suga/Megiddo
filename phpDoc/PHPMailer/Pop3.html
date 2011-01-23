@@ -1,0 +1,476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs For Class Pop3</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../media/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../media/print.css" media="print">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+        
+                                                        
+                            	        [ <a href="../classtrees_PHPMailer.html">Class Tree: PHPMailer</a> ]
+            [ <a href="../elementindex_PHPMailer.html">Index: PHPMailer</a> ]
+        		[ <a href="../elementindex.html">All elements</a> ]		
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">PHPMailer</div>
+		<div id="packageTitle">PHPMailer</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	<div id="packages">
+		Packages:
+					<p><a href="../li_default.html">default</a></p>
+					<p><a href="../li_PHPMailer.html">PHPMailer</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../PHPMailer/_Email---Phpmailer.php.html">		Phpmailer.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Pop3.php.html">		Pop3.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Smtp.php.html">		Smtp.php
+		</a><br>
+				</div>
+			<div id="interfaces">
+							</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="../PHPMailer/Phpmailer.html">		Phpmailer
+		</a><br>
+			<a href="../PHPMailer/phpmailerException.html">		phpmailerException
+		</a><br>
+			<a href="../PHPMailer/Pop3.html">		Pop3
+		</a><br>
+			<a href="../PHPMailer/Smtp.html">		Smtp
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+	    		<h1>Class: Pop3</h1>
+	<p style="margin: 0px;">Source Location: /Email/Pop3.php</p>
+	
+
+<div class="leftcol">
+	<h3><a href="#class_details">Class Overview</a> <span class="smalllinenumber">[line 62]</span></h3>
+	<div id="classTree"><pre></pre>
+</div>
+	<div class="small">
+	<p>POP Before SMTP Authentication Class  Version 5.0.0</p>
+		<h4>Author(s):</h4>
+	<ul>
+								<li>Richard Davey</li>
+						</ul>
+	<h4>Version:</h4>
+	<ul>
+								</ul>
+
+	<h4>Copyright:</h4>
+	<ul>
+								</li>
+	</div>
+</div>
+
+<div class="middlecol">
+	<h3><a href="#class_vars">Variables</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Pop3.html#var$CRLF">$CRLF</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$do_debug">$do_debug</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$host">$host</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$password">$password</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$POP3_PORT">$POP3_PORT</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$POP3_TIMEOUT">$POP3_TIMEOUT</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$port">$port</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$tval">$tval</a></li>
+				<li><a href="../PHPMailer/Pop3.html#var$username">$username</a></li>
+			</ul>
+	<h3><a href="#class_consts">Constants</a></h3>
+	<ul class="small">
+			</ul>
+</div>
+<div class="rightcol">
+	<h3><a href="#class_methods">Methods</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Pop3.html#method__construct">__construct</a></li>
+				<li><a href="../PHPMailer/Pop3.html#methodAuthorise">Authorise</a></li>
+				<li><a href="../PHPMailer/Pop3.html#methodConnect">Connect</a></li>
+				<li><a href="../PHPMailer/Pop3.html#methodDisconnect">Disconnect</a></li>
+				<li><a href="../PHPMailer/Pop3.html#methodLogin">Login</a></li>
+			</ul>
+</div>
+
+<div id="content">
+<hr>
+	<div class="contents">
+	</div>
+
+	<div class="leftCol">
+    	<h2>Inherited Variables</h2>
+		<h2>Inherited Constants</h2>
+		</div>
+
+	<div class="rightCol">
+	<h2>Inherited Methods</h2>
+		</div>
+	<br clear="all">
+	<hr>
+
+	<a name="class_details"></a>
+	<h2>Class Details</h2>
+	<p align="center"><strong>POP Before SMTP Authentication Class  Version 5.0.0
+</strong></p>
+<p>Author: Richard Davey (rich@corephp.co.uk)  Modifications: Andy Prevost  License: LGPL, see PHPMailer License</p><p>Specifically for PHPMailer to allow POP before SMTP authentication.  Does not yet work with APOP - if you have an APOP account, contact Richard Davey  and we can test changes to this script.</p><p>This class is based on the structure of the SMTP class originally authored by Chris Ryan</p><p>This class is rfc 1939 compliant and implements all the commands  required for POP3 connection, authentication and disconnection.</p><h4>Tags:</h4>
+<ul>
+	<li><b>author</b> - Richard Davey</li>
+</ul>
+	<p class="small" style="color: #334B66;">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_vars"></a>
+	<h2>Class Variables</h2>
+		<a name="var$CRLF"></a>
+	<p></p>
+	<h4>$CRLF = <span class="value">&nbsp;&quot;\r\n&quot;</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 80]</p>
+		<p align="center"><strong>POP3 Carriage Return + Line Feed
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$do_debug"></a>
+	<p></p>
+	<h4>$do_debug = <span class="value">&nbsp;2</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 86]</p>
+		<p align="center"><strong>Displaying Debug warnings? (0 = now, 1+ = yes)
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$host"></a>
+	<p></p>
+	<h4>$host</h4>
+	<div class="indent">
+		<p class="linenumber">[line 92]</p>
+		<p align="center"><strong>POP3 Mail Server
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$password"></a>
+	<p></p>
+	<h4>$password</h4>
+	<div class="indent">
+		<p class="linenumber">[line 116]</p>
+		<p align="center"><strong>POP3 Password
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$POP3_PORT"></a>
+	<p></p>
+	<h4>$POP3_PORT = <span class="value">&nbsp;110</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 68]</p>
+		<p align="center"><strong>Default POP3 port
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$POP3_TIMEOUT"></a>
+	<p></p>
+	<h4>$POP3_TIMEOUT = <span class="value">&nbsp;30</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 74]</p>
+		<p align="center"><strong>Default Timeout
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$port"></a>
+	<p></p>
+	<h4>$port</h4>
+	<div class="indent">
+		<p class="linenumber">[line 98]</p>
+		<p align="center"><strong>POP3 Port
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$tval"></a>
+	<p></p>
+	<h4>$tval</h4>
+	<div class="indent">
+		<p class="linenumber">[line 104]</p>
+		<p align="center"><strong>POP3 Timeout Value
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$username"></a>
+	<p></p>
+	<h4>$username</h4>
+	<div class="indent">
+		<p class="linenumber">[line 110]</p>
+		<p align="center"><strong>POP3 Username
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_methods"></a>
+	<h2>Class Methods</h2>
+	
+	<a name="method__construct"></a>
+	<p></p>
+	<h3>__construct</h3>
+	<div class="indent">
+		<p>
+		<code>POP3 __construct(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 135]</p>
+		<p align="center"><strong>Constructor, sets the initial values
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAuthorise"></a>
+	<p></p>
+	<h3>Authorise</h3>
+	<div class="indent">
+		<p>
+		<code>void Authorise(
+string
+$host, [integer
+$port = false], [integer
+$tval = false], string
+$username, string
+$password, [
+$debug_level = 0])</code>
+		</p>
+	
+		<p class="linenumber">[line 150]</p>
+		<p align="center"><strong>Combination of public events - connect, login, disconnect
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$host</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$port</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$tval</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$username</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$password</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$debug_level</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodConnect"></a>
+	<p></p>
+	<h3>Connect</h3>
+	<div class="indent">
+		<p>
+		<code>boolean Connect(
+string
+$host, [integer
+$port = false], [integer
+$tval = 30])</code>
+		</p>
+	
+		<p class="linenumber">[line 202]</p>
+		<p align="center"><strong>Connect to the POP3 server
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$host</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$port</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$tval</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDisconnect"></a>
+	<p></p>
+	<h3>Disconnect</h3>
+	<div class="indent">
+		<p>
+		<code>void Disconnect(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 318]</p>
+		<p align="center"><strong>Disconnect from the POP3 server
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodLogin"></a>
+	<p></p>
+	<h3>Login</h3>
+	<div class="indent">
+		<p>
+		<code>boolean Login(
+[string
+$username = ''], [string
+$password = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 275]</p>
+		<p align="center"><strong>Login to the POP3 server (does not support APOP yet)
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$username</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$password</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_consts"></a>
+	<h2>Class Constants</h2>
+	</div>
+	<div id="credit">
+		<hr>
+		Documentation generated on Sat, 22 Jan 2011 15:54:13 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	</div>
+</div>
+</body>
+</html>

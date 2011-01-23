@@ -1,0 +1,2852 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs For Class Phpmailer</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../media/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../media/print.css" media="print">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+        
+                                                        
+                            	        [ <a href="../classtrees_PHPMailer.html">Class Tree: PHPMailer</a> ]
+            [ <a href="../elementindex_PHPMailer.html">Index: PHPMailer</a> ]
+        		[ <a href="../elementindex.html">All elements</a> ]		
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">PHPMailer</div>
+		<div id="packageTitle">PHPMailer</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	<div id="packages">
+		Packages:
+					<p><a href="../li_default.html">default</a></p>
+					<p><a href="../li_PHPMailer.html">PHPMailer</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../PHPMailer/_Email---Phpmailer.php.html">		Phpmailer.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Pop3.php.html">		Pop3.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Smtp.php.html">		Smtp.php
+		</a><br>
+				</div>
+			<div id="interfaces">
+							</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="../PHPMailer/Phpmailer.html">		Phpmailer
+		</a><br>
+			<a href="../PHPMailer/phpmailerException.html">		phpmailerException
+		</a><br>
+			<a href="../PHPMailer/Pop3.html">		Pop3
+		</a><br>
+			<a href="../PHPMailer/Smtp.html">		Smtp
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+	    		<h1>Class: Phpmailer</h1>
+	<p style="margin: 0px;">Source Location: /Email/Phpmailer.php</p>
+	
+
+<div class="leftcol">
+	<h3><a href="#class_details">Class Overview</a> <span class="smalllinenumber">[line 44]</span></h3>
+	<div id="classTree"><pre></pre>
+</div>
+	<div class="small">
+	<p>PHPMailer - PHP email transport Phpmailer</p>
+		<h4>Author(s):</h4>
+	<ul>
+								<li>Marcus Bointon</li>
+											<li>Andy Prevost</li>
+																					</ul>
+	<h4>Version:</h4>
+	<ul>
+																		<li>$Id: Phpmailer.phpmailer.php 447 2009-05-25 01:36:38Z codeworxtech $</li>
+																</ul>
+
+	<h4>Copyright:</h4>
+	<ul>
+																							<li>2004 - 2009 Andy Prevost</li>
+											</li>
+	</div>
+</div>
+
+<div class="middlecol">
+	<h3><a href="#class_vars">Variables</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Phpmailer.html#var$action_function">$action_function</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$AltBody">$AltBody</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Body">$Body</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$CharSet">$CharSet</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$ConfirmReadingTo">$ConfirmReadingTo</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$ContentType">$ContentType</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$DKIM_domain">$DKIM_domain</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$DKIM_identity">$DKIM_identity</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$DKIM_private">$DKIM_private</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$DKIM_selector">$DKIM_selector</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Encoding">$Encoding</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$ErrorInfo">$ErrorInfo</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$From">$From</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$FromName">$FromName</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Helo">$Helo</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Host">$Host</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Hostname">$Hostname</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$language">$language</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$LE">$LE</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Mailer">$Mailer</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$MessageID">$MessageID</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Password">$Password</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$PluginDir">$PluginDir</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Port">$Port</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Priority">$Priority</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Sender">$Sender</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Sendmail">$Sendmail</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SingleTo">$SingleTo</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SingleToArray">$SingleToArray</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SMTPAuth">$SMTPAuth</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SMTPDebug">$SMTPDebug</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SMTPKeepAlive">$SMTPKeepAlive</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$SMTPSecure">$SMTPSecure</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Subject">$Subject</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Timeout">$Timeout</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Username">$Username</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$Version">$Version</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#var$WordWrap">$WordWrap</a></li>
+			</ul>
+	<h3><a href="#class_consts">Constants</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Phpmailer.html#constSTOP_CONTINUE">STOP_CONTINUE</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#constSTOP_CRITICAL">STOP_CRITICAL</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#constSTOP_MESSAGE">STOP_MESSAGE</a></li>
+			</ul>
+</div>
+<div class="rightcol">
+	<h3><a href="#class_methods">Methods</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Phpmailer.html#method__construct">__construct</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddAddress">AddAddress</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddAttachment">AddAttachment</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddBCC">AddBCC</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddCC">AddCC</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddCustomHeader">AddCustomHeader</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddEmbeddedImage">AddEmbeddedImage</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddrAppend">AddrAppend</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddReplyTo">AddReplyTo</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddrFormat">AddrFormat</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodAddStringAttachment">AddStringAttachment</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodBase64EncodeWrapMB">Base64EncodeWrapMB</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearAddresses">ClearAddresses</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearAllRecipients">ClearAllRecipients</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearAttachments">ClearAttachments</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearBCCs">ClearBCCs</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearCCs">ClearCCs</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearCustomHeaders">ClearCustomHeaders</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodClearReplyTos">ClearReplyTos</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodCreateBody">CreateBody</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodCreateHeader">CreateHeader</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodDKIM_Add">DKIM_Add</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodDKIM_BodyC">DKIM_BodyC</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodDKIM_HeaderC">DKIM_HeaderC</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodDKIM_QP">DKIM_QP</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodDKIM_Sign">DKIM_Sign</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methoddoCallback">doCallback</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodEncodeHeader">EncodeHeader</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodEncodeQ">EncodeQ</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodEncodeQP">EncodeQP</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodEncodeQPphp">EncodeQPphp</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodEncodeString">EncodeString</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodGetAttachments">GetAttachments</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodGetMailMIME">GetMailMIME</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodGetTranslations">GetTranslations</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodHasMultiBytes">HasMultiBytes</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodHeaderLine">HeaderLine</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodInlineImageExists">InlineImageExists</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsError">IsError</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsHTML">IsHTML</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsMail">IsMail</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsQmail">IsQmail</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsSendmail">IsSendmail</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodIsSMTP">IsSMTP</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodMailSend">MailSend</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodMsgHTML">MsgHTML</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodRFCDate">RFCDate</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSecureHeader">SecureHeader</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSend">Send</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSendmailSend">SendmailSend</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodset">set</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSetError">SetError</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSetFrom">SetFrom</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSetLanguage">SetLanguage</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSetWordWrap">SetWordWrap</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSign">Sign</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSmtpClose">SmtpClose</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSmtpConnect">SmtpConnect</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodSmtpSend">SmtpSend</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodTextLine">TextLine</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodUTF8CharBoundary">UTF8CharBoundary</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodValidateAddress">ValidateAddress</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#methodWrapText">WrapText</a></li>
+				<li><a href="../PHPMailer/Phpmailer.html#method_mime_types">_mime_types</a></li>
+			</ul>
+</div>
+
+<div id="content">
+<hr>
+	<div class="contents">
+	</div>
+
+	<div class="leftCol">
+    	<h2>Inherited Variables</h2>
+		<h2>Inherited Constants</h2>
+		</div>
+
+	<div class="rightCol">
+	<h2>Inherited Methods</h2>
+		</div>
+	<br clear="all">
+	<hr>
+
+	<a name="class_details"></a>
+	<h2>Class Details</h2>
+	<p align="center"><strong>PHPMailer - PHP email transport Phpmailer
+</strong></p>
+<p>NOTE: Requires PHP version 5 or later</p><h4>Tags:</h4>
+<ul>
+	<li><b>author</b> - Marcus Bointon</li>
+	<li><b>author</b> - Andy Prevost</li>
+	<li><b>version</b> - $Id: Phpmailer.phpmailer.php 447 2009-05-25 01:36:38Z codeworxtech $</li>
+	<li><b>copyright</b> - 2004 - 2009 Andy Prevost</li>
+	<li><b>license</b> - <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a></li>
+</ul>
+	<p class="small" style="color: #334B66;">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_vars"></a>
+	<h2>Class Variables</h2>
+		<a name="var$action_function"></a>
+	<p></p>
+	<h4>$action_function = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 300]</p>
+		<p align="center"><strong>Callback Action function name
+</strong></p>
+<p>the function that handles the result of the send email action. Parameters:    bool    $result        result of the send action    string  $to            email address of the recipient    string  $cc            cc email addresses    string  $bcc           bcc email addresses    string  $subject       the subject    string  $body          the email body</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$AltBody"></a>
+	<p></p>
+	<h4>$AltBody = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 121]</p>
+		<p align="center"><strong>Sets the text-only body of the message.  This automatically sets the  email to multipart/alternative.  This body can be read by mail  clients that do not have HTML email capability such as mutt. Clients  that can read HTML will view the normal Body.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Body"></a>
+	<p></p>
+	<h4>$Body = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 112]</p>
+		<p align="center"><strong>Sets the Body of the message.  This can be either an HTML or text body.
+</strong></p>
+<p>If HTML then run IsHTML(true).</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$CharSet"></a>
+	<p></p>
+	<h4>$CharSet = <span class="value">&nbsp;'iso-8859-1'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 61]</p>
+		<p align="center"><strong>Sets the CharSet of the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$ConfirmReadingTo"></a>
+	<p></p>
+	<h4>$ConfirmReadingTo = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 153]</p>
+		<p align="center"><strong>Sets the email address that a reading confirmation will be sent.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$ContentType"></a>
+	<p></p>
+	<h4>$ContentType = <span class="value">&nbsp;'text/plain'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 67]</p>
+		<p align="center"><strong>Sets the Content-type of the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$DKIM_domain"></a>
+	<p></p>
+	<h4>$DKIM_domain = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 280]</p>
+		<p align="center"><strong>Used with DKIM DNS Resource Record
+</strong></p>
+<p>optional, in format of email address 'you@yourdomain.com'</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$DKIM_identity"></a>
+	<p></p>
+	<h4>$DKIM_identity = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 273]</p>
+		<p align="center"><strong>Used with DKIM DNS Resource Record
+</strong></p>
+<p>optional, in format of email address 'you@yourdomain.com'</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$DKIM_private"></a>
+	<p></p>
+	<h4>$DKIM_private = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 287]</p>
+		<p align="center"><strong>Used with DKIM DNS Resource Record
+</strong></p>
+<p>optional, in format of email address 'you@yourdomain.com'</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$DKIM_selector"></a>
+	<p></p>
+	<h4>$DKIM_selector = <span class="value">&nbsp;'phpmailer'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 266]</p>
+		<p align="center"><strong>Used with DKIM DNS Resource Record
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Encoding"></a>
+	<p></p>
+	<h4>$Encoding = <span class="value">&nbsp;'8bit'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 74]</p>
+		<p align="center"><strong>Sets the Encoding of the message. Options for this are   &quot;8bit&quot;, &quot;7bit&quot;, &quot;binary&quot;, &quot;base64&quot;, and &quot;quoted-printable&quot;.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$ErrorInfo"></a>
+	<p></p>
+	<h4>$ErrorInfo = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 80]</p>
+		<p align="center"><strong>Holds the most recent mailer error message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$From"></a>
+	<p></p>
+	<h4>$From = <span class="value">&nbsp;'root@localhost'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 86]</p>
+		<p align="center"><strong>Sets the From email address for the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$FromName"></a>
+	<p></p>
+	<h4>$FromName = <span class="value">&nbsp;'Root&nbsp;User'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 92]</p>
+		<p align="center"><strong>Sets the From name of the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Helo"></a>
+	<p></p>
+	<h4>$Helo = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 195]</p>
+		<p align="center"><strong>Sets the SMTP HELO of the message (Default is $Hostname).
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Host"></a>
+	<p></p>
+	<h4>$Host = <span class="value">&nbsp;'localhost'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 183]</p>
+		<p align="center"><strong>Sets the SMTP hosts.  All hosts must be separated by a  semicolon.  You can also specify a different port  for each host by using this format: [hostname:port]  (e.g. &quot;smtp1.example.com:25;smtp2.example.com&quot;).
+</strong></p>
+<p>Hosts will be tried in order.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Hostname"></a>
+	<p></p>
+	<h4>$Hostname = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 161]</p>
+		<p align="center"><strong>Sets the hostname to use in Message-Id and Received headers  and as default HELO string. If empty, the value returned  by SERVER_NAME is used or 'localhost.localdomain'.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$language"></a>
+	<p></p>
+	<h4>$language = <span class="value">array()</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 334]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+</ul>
+		<p><b>Type:</b> mixed</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$LE"></a>
+	<p></p>
+	<h4>$LE = <span class="value">&nbsp;&quot;\n&quot;</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 260]</p>
+		<p align="center"><strong>Provides the ability to change the line ending
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Mailer"></a>
+	<p></p>
+	<h4>$Mailer = <span class="value">&nbsp;'mail'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 134]</p>
+		<p align="center"><strong>Method to send mail: (&quot;mail&quot;, &quot;sendmail&quot;, or &quot;smtp&quot;).
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$MessageID"></a>
+	<p></p>
+	<h4>$MessageID = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 168]</p>
+		<p align="center"><strong>Sets the message ID to be used in the Message-Id header.
+</strong></p>
+<p>If empty, a unique id will be generated.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Password"></a>
+	<p></p>
+	<h4>$Password = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 220]</p>
+		<p align="center"><strong>Sets SMTP password.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$PluginDir"></a>
+	<p></p>
+	<h4>$PluginDir = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 147]</p>
+		<p align="center"><strong>Path to PHPMailer plugins.  Useful if the SMTP Phpmailer  is in a different directory than the PHP include path.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Port"></a>
+	<p></p>
+	<h4>$Port = <span class="value">&nbsp;25</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 189]</p>
+		<p align="center"><strong>Sets the default SMTP server port.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Priority"></a>
+	<p></p>
+	<h4>$Priority = <span class="value">&nbsp;3</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 55]</p>
+		<p align="center"><strong>Email priority (1 = High, 3 = Normal, 5 = low).
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Sender"></a>
+	<p></p>
+	<h4>$Sender = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 99]</p>
+		<p align="center"><strong>Sets the Sender email (Return-Path) of the message.  If not empty,  will be sent via -f to sendmail or as 'MAIL FROM' in smtp mode.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Sendmail"></a>
+	<p></p>
+	<h4>$Sendmail = <span class="value">&nbsp;'/usr/sbin/sendmail'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 140]</p>
+		<p align="center"><strong>Sets the path of the sendmail program.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SingleTo"></a>
+	<p></p>
+	<h4>$SingleTo = <span class="value">&nbsp;false</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 248]</p>
+		<p align="center"><strong>Provides the ability to have the TO field process individual
+</strong></p>
+<p>emails, instead of sending to entire TO addresses</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SingleToArray"></a>
+	<p></p>
+	<h4>$SingleToArray = <span class="value">array()</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 254]</p>
+		<p align="center"><strong>If SingleTo is true, this provides the array to hold the email addresses
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SMTPAuth"></a>
+	<p></p>
+	<h4>$SMTPAuth = <span class="value">&nbsp;false</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 208]</p>
+		<p align="center"><strong>Sets SMTP authentication. Utilizes the Username and Password variables.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SMTPDebug"></a>
+	<p></p>
+	<h4>$SMTPDebug = <span class="value">&nbsp;false</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 233]</p>
+		<p align="center"><strong>Sets SMTP Phpmailer debugging on or off.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SMTPKeepAlive"></a>
+	<p></p>
+	<h4>$SMTPKeepAlive = <span class="value">&nbsp;false</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 241]</p>
+		<p align="center"><strong>Prevents the SMTP connection from being closed after each mail  sending.  If this is set to true then to close the connection  requires an explicit call to SmtpClose().
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SMTPSecure"></a>
+	<p></p>
+	<h4>$SMTPSecure = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 202]</p>
+		<p align="center"><strong>Sets connection prefix.
+</strong></p>
+<p>Options are &quot;&quot;, &quot;ssl&quot; or &quot;tls&quot;</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Subject"></a>
+	<p></p>
+	<h4>$Subject = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 105]</p>
+		<p align="center"><strong>Sets the Subject of the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Timeout"></a>
+	<p></p>
+	<h4>$Timeout = <span class="value">&nbsp;10</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 227]</p>
+		<p align="center"><strong>Sets the SMTP server timeout in seconds.
+</strong></p>
+<p>This function will not work with the win32 version.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Username"></a>
+	<p></p>
+	<h4>$Username = <span class="value">&nbsp;''</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 214]</p>
+		<p align="center"><strong>Sets SMTP username.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$Version"></a>
+	<p></p>
+	<h4>$Version = <span class="value">&nbsp;'5.1'</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 307]</p>
+		<p align="center"><strong>Sets the PHPMailer Version number
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$WordWrap"></a>
+	<p></p>
+	<h4>$WordWrap = <span class="value">&nbsp;0</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 128]</p>
+		<p align="center"><strong>Sets word wrapping on the body of the message to a given number of  characters.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_methods"></a>
+	<h2>Class Methods</h2>
+		<a name="methodRFCDate"></a>
+	<p></p>
+	<h3>static RFCDate</h3>
+	<div class="indent">
+		<p>
+		<code>static string RFCDate(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1913]</p>
+		<p align="center"><strong>Returns the proper RFC 822 formatted date.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodValidateAddress"></a>
+	<p></p>
+	<h3>static ValidateAddress</h3>
+	<div class="indent">
+		<p>
+		<code>static boolean ValidateAddress(
+string
+$address)</code>
+		</p>
+	
+		<p class="linenumber">[line 547]</p>
+		<p align="center"><strong>Check that a string looks roughly like an email address should
+</strong></p>
+<p>Static so it can be used without instantiation  Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator  Conforms approximately to RFC2822</p><h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://www.hexillion.com/samples/#Regex">Original pattern found here</a></li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		The email address to check</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="method_mime_types"></a>
+	<p></p>
+	<h3>static _mime_types</h3>
+	<div class="indent">
+		<p>
+		<code>static string _mime_types(
+[string
+$ext = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 2034]</p>
+		<p align="center"><strong>Gets the MIME type of the embedded or inline image
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - MIME type of ext</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$ext</b> 
+		- 
+		File extension</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<a name="method__construct"></a>
+	<p></p>
+	<h3>__construct</h3>
+	<div class="indent">
+		<p>
+		<code>Phpmailer __construct(
+[boolean
+$exceptions = false])</code>
+		</p>
+	
+		<p class="linenumber">[line 365]</p>
+		<p align="center"><strong>Constructor
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">boolean</span>
+		<b>$exceptions</b> 
+		- 
+		Should we throw external exceptions?</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddAddress"></a>
+	<p></p>
+	<h3>AddAddress</h3>
+	<div class="indent">
+		<p>
+		<code>boolean AddAddress(
+string
+$address, [string
+$name = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 431]</p>
+		<p align="center"><strong>Adds a &quot;To&quot; address.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - true on success, false if address already used</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddAttachment"></a>
+	<p></p>
+	<h3>AddAttachment</h3>
+	<div class="indent">
+		<p>
+		<code>bool AddAttachment(
+string
+$path, [string
+$name = ''], [string
+$encoding = 'base64'], [string
+$type = 'application/octet-stream'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1350]</p>
+		<p align="center"><strong>Adds an attachment from a path on the filesystem.
+</strong></p>
+<p>Returns false if the file could not be found  or accessed.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$path</b> 
+		- 
+		Path to the attachment.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		Overrides the attachment name.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$encoding</b> 
+		- 
+		File encoding (see $Encoding).</li>
+			<li>
+		<span class="type">string</span>
+		<b>$type</b> 
+		- 
+		File extension (MIME) type.</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddBCC"></a>
+	<p></p>
+	<h3>AddBCC</h3>
+	<div class="indent">
+		<p>
+		<code>boolean AddBCC(
+string
+$address, [string
+$name = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 453]</p>
+		<p align="center"><strong>Adds a &quot;Bcc&quot; address.
+</strong></p>
+<p>Note: this function works with the SMTP mailer on win32, not with the &quot;mail&quot; mailer.</p><h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - true on success, false if address already used</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddCC"></a>
+	<p></p>
+	<h3>AddCC</h3>
+	<div class="indent">
+		<p>
+		<code>boolean AddCC(
+string
+$address, [string
+$name = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 442]</p>
+		<p align="center"><strong>Adds a &quot;Cc&quot; address.
+</strong></p>
+<p>Note: this function works with the SMTP mailer on win32, not with the &quot;mail&quot; mailer.</p><h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - true on success, false if address already used</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddCustomHeader"></a>
+	<p></p>
+	<h3>AddCustomHeader</h3>
+	<div class="indent">
+		<p>
+		<code>void AddCustomHeader(
+
+$custom_header)</code>
+		</p>
+	
+		<p class="linenumber">[line 1983]</p>
+		<p align="center"><strong>Adds a custom header.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$custom_header</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddEmbeddedImage"></a>
+	<p></p>
+	<h3>AddEmbeddedImage</h3>
+	<div class="indent">
+		<p>
+		<code>bool AddEmbeddedImage(
+string
+$path, string
+$cid, [string
+$name = ''], [string
+$encoding = 'base64'], [string
+$type = 'application/octet-stream'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1778]</p>
+		<p align="center"><strong>Adds an embedded attachment.  This can include images, sounds, and  just about any other document.  Make sure to set the $type to an  image type.  For JPEG images use &quot;image/jpeg&quot; and for GIF images  use &quot;image/gif&quot;.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$path</b> 
+		- 
+		Path to the attachment.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$cid</b> 
+		- 
+		Content ID of the attachment.  Use this to identify         the Id for accessing the image in an HTML form.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		Overrides the attachment name.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$encoding</b> 
+		- 
+		File encoding (see $Encoding).</li>
+			<li>
+		<span class="type">string</span>
+		<b>$type</b> 
+		- 
+		File extension (MIME) type.</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddrAppend"></a>
+	<p></p>
+	<h3>AddrAppend</h3>
+	<div class="indent">
+		<p>
+		<code>string AddrAppend(
+
+$type, 
+$addr)</code>
+		</p>
+	
+		<p class="linenumber">[line 904]</p>
+		<p align="center"><strong>Creates recipient headers.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$type</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$addr</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddReplyTo"></a>
+	<p></p>
+	<h3>AddReplyTo</h3>
+	<div class="indent">
+		<p>
+		<code>boolean AddReplyTo(
+string
+$address, [string
+$name = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 463]</p>
+		<p align="center"><strong>Adds a &quot;Reply-to&quot; address.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddrFormat"></a>
+	<p></p>
+	<h3>AddrFormat</h3>
+	<div class="indent">
+		<p>
+		<code>string AddrFormat(
+
+$addr)</code>
+		</p>
+	
+		<p class="linenumber">[line 921]</p>
+		<p align="center"><strong>Formats an address correctly.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$addr</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAddStringAttachment"></a>
+	<p></p>
+	<h3>AddStringAttachment</h3>
+	<div class="indent">
+		<p>
+		<code>void AddStringAttachment(
+string
+$string, string
+$filename, [string
+$encoding = 'base64'], [string
+$type = 'application/octet-stream'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1759]</p>
+		<p align="center"><strong>Adds a string or binary attachment (non-filesystem) to the list.
+</strong></p>
+<p>This method can be used to attach ascii or binary data,  such as a BLOB record from a database.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$string</b> 
+		- 
+		String attachment data.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$filename</b> 
+		- 
+		Name of the attachment.</li>
+			<li>
+		<span class="type">string</span>
+		<b>$encoding</b> 
+		- 
+		File encoding (see $Encoding).</li>
+			<li>
+		<span class="type">string</span>
+		<b>$type</b> 
+		- 
+		File extension (MIME) type.</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodBase64EncodeWrapMB"></a>
+	<p></p>
+	<h3>Base64EncodeWrapMB</h3>
+	<div class="indent">
+		<p>
+		<code>string Base64EncodeWrapMB(
+string
+$str)</code>
+		</p>
+	
+		<p class="linenumber">[line 1604]</p>
+		<p align="center"><strong>Correctly encodes and wraps long multibyte strings for mail headers  without breaking lines within a character.
+</strong></p>
+<p>Adapted from a function by paravoid at http://uk.php.net/manual/en/function.mb-encode-mimeheader.php</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$str</b> 
+		- 
+		multi-byte text to wrap encode</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearAddresses"></a>
+	<p></p>
+	<h3>ClearAddresses</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearAddresses(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1820]</p>
+		<p align="center"><strong>Clears all recipients assigned in the TO array.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearAllRecipients"></a>
+	<p></p>
+	<h3>ClearAllRecipients</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearAllRecipients(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1862]</p>
+		<p align="center"><strong>Clears all recipients assigned in the TO, CC and BCC  array.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearAttachments"></a>
+	<p></p>
+	<h3>ClearAttachments</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearAttachments(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1874]</p>
+		<p align="center"><strong>Clears all previously set filesystem, string, and binary  attachments.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearBCCs"></a>
+	<p></p>
+	<h3>ClearBCCs</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearBCCs(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1842]</p>
+		<p align="center"><strong>Clears all recipients assigned in the BCC array.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearCCs"></a>
+	<p></p>
+	<h3>ClearCCs</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearCCs(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1831]</p>
+		<p align="center"><strong>Clears all recipients assigned in the CC array.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearCustomHeaders"></a>
+	<p></p>
+	<h3>ClearCustomHeaders</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearCustomHeaders(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1882]</p>
+		<p align="center"><strong>Clears all custom headers.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClearReplyTos"></a>
+	<p></p>
+	<h3>ClearReplyTos</h3>
+	<div class="indent">
+		<p>
+		<code>void ClearReplyTos(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1853]</p>
+		<p align="center"><strong>Clears all recipients assigned in the ReplyTo array.  Returns void.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodCreateBody"></a>
+	<p></p>
+	<h3>CreateBody</h3>
+	<div class="indent">
+		<p>
+		<code>string CreateBody(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1195]</p>
+		<p align="center"><strong>Assembles the message body.  Returns an empty string on failure.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - The assembled message body</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodCreateHeader"></a>
+	<p></p>
+	<h3>CreateHeader</h3>
+	<div class="indent">
+		<p>
+		<code>string CreateHeader(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1078]</p>
+		<p align="center"><strong>Assembles message header.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - The assembled header</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDKIM_Add"></a>
+	<p></p>
+	<h3>DKIM_Add</h3>
+	<div class="indent">
+		<p>
+		<code>void DKIM_Add(
+string
+$headers_line, string
+$subject, string
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 2177]</p>
+		<p align="center"><strong>Create the DKIM header, body, as new header
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$headers_line</b> 
+		- 
+		Header lines</li>
+			<li>
+		<span class="type">string</span>
+		<b>$subject</b> 
+		- 
+		Subject</li>
+			<li>
+		<span class="type">string</span>
+		<b>$body</b> 
+		- 
+		Body</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDKIM_BodyC"></a>
+	<p></p>
+	<h3>DKIM_BodyC</h3>
+	<div class="indent">
+		<p>
+		<code>void DKIM_BodyC(
+string
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 2156]</p>
+		<p align="center"><strong>Generate DKIM Canonicalization Body
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$body</b> 
+		- 
+		Message Body</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDKIM_HeaderC"></a>
+	<p></p>
+	<h3>DKIM_HeaderC</h3>
+	<div class="indent">
+		<p>
+		<code>void DKIM_HeaderC(
+string
+$s)</code>
+		</p>
+	
+		<p class="linenumber">[line 2137]</p>
+		<p align="center"><strong>Generate DKIM Canonicalization Header
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$s</b> 
+		- 
+		Header</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDKIM_QP"></a>
+	<p></p>
+	<h3>DKIM_QP</h3>
+	<div class="indent">
+		<p>
+		<code>void DKIM_QP(
+
+$txt, string
+$key_filename, string
+$key_pass)</code>
+		</p>
+	
+		<p class="linenumber">[line 2099]</p>
+		<p align="center"><strong>Set the private key file and password to sign the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$key_filename</b> 
+		- 
+		Parameter File Name</li>
+			<li>
+		<span class="type">string</span>
+		<b>$key_pass</b> 
+		- 
+		Password for private key</li>
+			<li>
+		<span class="type"></span>
+		<b>$txt</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodDKIM_Sign"></a>
+	<p></p>
+	<h3>DKIM_Sign</h3>
+	<div class="indent">
+		<p>
+		<code>void DKIM_Sign(
+string
+$s)</code>
+		</p>
+	
+		<p class="linenumber">[line 2119]</p>
+		<p align="center"><strong>Generate DKIM signature
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$s</b> 
+		- 
+		Header</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methoddoCallback"></a>
+	<p></p>
+	<h3>doCallback</h3>
+	<div class="indent">
+		<p>
+		<code>void doCallback(
+
+$isSent, 
+$to, 
+$cc, 
+$bcc, 
+$subject, 
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 2204]</p>
+		<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$isSent</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$to</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$cc</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$bcc</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$subject</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$body</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodEncodeHeader"></a>
+	<p></p>
+	<h3>EncodeHeader</h3>
+	<div class="indent">
+		<p>
+		<code>string EncodeHeader(
+
+$str, [
+$position = 'text'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1527]</p>
+		<p align="center"><strong>Encode a header string to best (shortest) of Q, B, quoted or none.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$str</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$position</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodEncodeQ"></a>
+	<p></p>
+	<h3>EncodeQ</h3>
+	<div class="indent">
+		<p>
+		<code>string EncodeQ(
+string
+$str, [string
+$position = 'text'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1725]</p>
+		<p align="center"><strong>Encode string to q encoding.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>link</b> - <a href="http://tools.ietf.org/html/rfc2047">http://tools.ietf.org/html/rfc2047</a></li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$str</b> 
+		- 
+		the text to encode</li>
+			<li>
+		<span class="type">string</span>
+		<b>$position</b> 
+		- 
+		Where the text is going to be used, see the RFC for what that means</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodEncodeQP"></a>
+	<p></p>
+	<h3>EncodeQP</h3>
+	<div class="indent">
+		<p>
+		<code>string EncodeQP(
+string
+$string, [integer
+$line_max = 76], [boolean
+$space_conv = false])</code>
+		</p>
+	
+		<p class="linenumber">[line 1696]</p>
+		<p align="center"><strong>Encode string to RFC2045 (6.7) quoted-printable format
+</strong></p>
+<p>Uses a PHP5 stream filter to do the encoding about 64x faster than the old version  Also results in same content as you started with after decoding</p><h4>Tags:</h4>
+<ul>
+	<li><b>author</b> - Marcus Bointon</li>
+	<li><b>see</b> - <a href="../PHPMailer/Phpmailer.html#methodEncodeQPphp">Phpmailer::EncodeQPphp()</a></li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$string</b> 
+		- 
+		the text to encode</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$line_max</b> 
+		- 
+		Number of chars allowed on a line before wrapping</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$space_conv</b> 
+		- 
+		Dummy param for compatibility with existing EncodeQP function</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodEncodeQPphp"></a>
+	<p></p>
+	<h3>EncodeQPphp</h3>
+	<div class="indent">
+		<p>
+		<code>string EncodeQPphp(
+[
+$input = ''], [integer
+$line_max = 76], [
+$space_conv = false], string
+$string)</code>
+		</p>
+	
+		<p class="linenumber">[line 1643]</p>
+		<p align="center"><strong>Encode string to quoted-printable.
+</strong></p>
+<p>Only uses standard PHP, slow, but will always work</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$string</b> 
+		- 
+		the text to encode</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$line_max</b> 
+		- 
+		Number of chars allowed on a line before wrapping</li>
+			<li>
+		<span class="type"></span>
+		<b>$input</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$space_conv</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodEncodeString"></a>
+	<p></p>
+	<h3>EncodeString</h3>
+	<div class="indent">
+		<p>
+		<code>string EncodeString(
+string
+$str, [string
+$encoding = 'base64'])</code>
+		</p>
+	
+		<p class="linenumber">[line 1496]</p>
+		<p align="center"><strong>Encodes string to requested format.
+</strong></p>
+<p>Returns an empty string on failure.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$str</b> 
+		- 
+		The text to encode</li>
+			<li>
+		<span class="type">string</span>
+		<b>$encoding</b> 
+		- 
+		The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodGetAttachments"></a>
+	<p></p>
+	<h3>GetAttachments</h3>
+	<div class="indent">
+		<p>
+		<code>array GetAttachments(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1380]</p>
+		<p align="center"><strong>Return the current array of attachments
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodGetMailMIME"></a>
+	<p></p>
+	<h3>GetMailMIME</h3>
+	<div class="indent">
+		<p>
+		<code>string GetMailMIME(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1161]</p>
+		<p align="center"><strong>Returns the message MIME.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodGetTranslations"></a>
+	<p></p>
+	<h3>GetTranslations</h3>
+	<div class="indent">
+		<p>
+		<code>array GetTranslations(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 890]</p>
+		<p align="center"><strong>Return the current array of language strings
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodHasMultiBytes"></a>
+	<p></p>
+	<h3>HasMultiBytes</h3>
+	<div class="indent">
+		<p>
+		<code>bool HasMultiBytes(
+string
+$str)</code>
+		</p>
+	
+		<p class="linenumber">[line 1588]</p>
+		<p align="center"><strong>Checks if a string contains multibyte characters.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$str</b> 
+		- 
+		multi-byte text to wrap encode</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodHeaderLine"></a>
+	<p></p>
+	<h3>HeaderLine</h3>
+	<div class="indent">
+		<p>
+		<code>string HeaderLine(
+
+$name, 
+$value)</code>
+		</p>
+	
+		<p class="linenumber">[line 1322]</p>
+		<p align="center"><strong>Returns a formatted header line.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$name</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$value</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodInlineImageExists"></a>
+	<p></p>
+	<h3>InlineImageExists</h3>
+	<div class="indent">
+		<p>
+		<code>bool InlineImageExists(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1802]</p>
+		<p align="center"><strong>Returns true if an inline attachment is present.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsError"></a>
+	<p></p>
+	<h3>IsError</h3>
+	<div class="indent">
+		<p>
+		<code>bool IsError(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1962]</p>
+		<p align="center"><strong>Returns true if an error occurred.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsHTML"></a>
+	<p></p>
+	<h3>IsHTML</h3>
+	<div class="indent">
+		<p>
+		<code>void IsHTML(
+[bool
+$ishtml = true])</code>
+		</p>
+	
+		<p class="linenumber">[line 374]</p>
+		<p align="center"><strong>Sets message type to HTML.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">bool</span>
+		<b>$ishtml</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsMail"></a>
+	<p></p>
+	<h3>IsMail</h3>
+	<div class="indent">
+		<p>
+		<code>void IsMail(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 394]</p>
+		<p align="center"><strong>Sets Mailer to send message using PHP mail() function.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsQmail"></a>
+	<p></p>
+	<h3>IsQmail</h3>
+	<div class="indent">
+		<p>
+		<code>void IsQmail(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 413]</p>
+		<p align="center"><strong>Sets Mailer to send message using the qmail MTA.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsSendmail"></a>
+	<p></p>
+	<h3>IsSendmail</h3>
+	<div class="indent">
+		<p>
+		<code>void IsSendmail(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 402]</p>
+		<p align="center"><strong>Sets Mailer to send message using the $Sendmail program.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodIsSMTP"></a>
+	<p></p>
+	<h3>IsSMTP</h3>
+	<div class="indent">
+		<p>
+		<code>void IsSMTP(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 386]</p>
+		<p align="center"><strong>Sets Mailer to send message using SMTP.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodMailSend"></a>
+	<p></p>
+	<h3>MailSend</h3>
+	<div class="indent">
+		<p>
+		<code>bool MailSend(
+string
+$header, string
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 669]</p>
+		<p align="center"><strong>Sends mail using the PHP mail() function.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$header</b> 
+		- 
+		The message headers</li>
+			<li>
+		<span class="type">string</span>
+		<b>$body</b> 
+		- 
+		The message body</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodMsgHTML"></a>
+	<p></p>
+	<h3>MsgHTML</h3>
+	<div class="indent">
+		<p>
+		<code>$message MsgHTML(
+
+$message, [
+$basedir = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 1992]</p>
+		<p align="center"><strong>Evaluates the message and returns modifications for inline images and backgrounds
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$message</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$basedir</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSecureHeader"></a>
+	<p></p>
+	<h3>SecureHeader</h3>
+	<div class="indent">
+		<p>
+		<code>string SecureHeader(
+string
+$str)</code>
+		</p>
+	
+		<p class="linenumber">[line 2073]</p>
+		<p align="center"><strong>Strips newlines to prevent header injection.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$str</b> 
+		- 
+		String</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSend"></a>
+	<p></p>
+	<h3>Send</h3>
+	<div class="indent">
+		<p>
+		<code>bool Send(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 570]</p>
+		<p align="center"><strong>Creates message and assigns Mailer. If the message is  not sent successfully then it returns false.  Use the ErrorInfo  variable to view description of the error.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSendmailSend"></a>
+	<p></p>
+	<h3>SendmailSend</h3>
+	<div class="indent">
+		<p>
+		<code>bool SendmailSend(
+string
+$header, string
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 623]</p>
+		<p align="center"><strong>Sends mail using the $Sendmail program.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$header</b> 
+		- 
+		The message headers</li>
+			<li>
+		<span class="type">string</span>
+		<b>$body</b> 
+		- 
+		The message body</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodset"></a>
+	<p></p>
+	<h3>set</h3>
+	<div class="indent">
+		<p>
+		<code>void set(
+string
+$name, [mixed
+$value = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 2051]</p>
+		<p align="center"><strong>Set (or reset) Class Objects (variables)
+</strong></p>
+<p>Usage Example:  $page-&gt;set('X-Priority', '3');</p><h4>Tags:</h4>
+<ul>
+	<li><b>todo</b> - Should this not be using __set() magic function?</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		Parameter Name</li>
+			<li>
+		<span class="type">mixed</span>
+		<b>$value</b> 
+		- 
+		Parameter Value  NOTE: will not work with arrays, there are no arrays to set/reset</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSetError"></a>
+	<p></p>
+	<h3>SetError</h3>
+	<div class="indent">
+		<p>
+		<code>void SetError(
+
+$msg)</code>
+		</p>
+	
+		<p class="linenumber">[line 1896]</p>
+		<p align="center"><strong>Adds the error message to the error container.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$msg</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSetFrom"></a>
+	<p></p>
+	<h3>SetFrom</h3>
+	<div class="indent">
+		<p>
+		<code>boolean SetFrom(
+string
+$address, [string
+$name = ''], [
+$auto = 1])</code>
+		</p>
+	
+		<p class="linenumber">[line 512]</p>
+		<p align="center"><strong>Set the From and FromName properties
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$address</b> 
+		- 
+		</li>
+			<li>
+		<span class="type">string</span>
+		<b>$name</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$auto</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSetLanguage"></a>
+	<p></p>
+	<h3>SetLanguage</h3>
+	<div class="indent">
+		<p>
+		<code>void SetLanguage(
+[string
+$langcode = 'en'], [string
+$lang_path = 'language/'])</code>
+		</p>
+	
+		<p class="linenumber">[line 874]</p>
+		<p align="center"><strong>Sets the language for all Phpmailer error messages.
+</strong></p>
+<p>Returns false if it cannot load the language file.  The default language is English.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$langcode</b> 
+		- 
+		ISO 639-1 2-character language code (e.g. Portuguese: &quot;br&quot;)</li>
+			<li>
+		<span class="type">string</span>
+		<b>$lang_path</b> 
+		- 
+		Path to the language file directory</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSetWordWrap"></a>
+	<p></p>
+	<h3>SetWordWrap</h3>
+	<div class="indent">
+		<p>
+		<code>void SetWordWrap(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 1057]</p>
+		<p align="center"><strong>Set the body wrapping.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSign"></a>
+	<p></p>
+	<h3>Sign</h3>
+	<div class="indent">
+		<p>
+		<code>void Sign(
+
+$cert_filename, string
+$key_filename, string
+$key_pass)</code>
+		</p>
+	
+		<p class="linenumber">[line 2086]</p>
+		<p align="center"><strong>Set the private key file and password to sign the message.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$key_filename</b> 
+		- 
+		Parameter File Name</li>
+			<li>
+		<span class="type">string</span>
+		<b>$key_pass</b> 
+		- 
+		Password for private key</li>
+			<li>
+		<span class="type"></span>
+		<b>$cert_filename</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSmtpClose"></a>
+	<p></p>
+	<h3>SmtpClose</h3>
+	<div class="indent">
+		<p>
+		<code>void SmtpClose(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 858]</p>
+		<p align="center"><strong>Closes the active SMTP session if one exists.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSmtpConnect"></a>
+	<p></p>
+	<h3>SmtpConnect</h3>
+	<div class="indent">
+		<p>
+		<code>bool SmtpConnect(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 796]</p>
+		<p align="center"><strong>Initiates a connection to an SMTP server.
+</strong></p>
+<p>Returns false if the operation failed.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+	<li><b>uses</b> - SMTP</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSmtpSend"></a>
+	<p></p>
+	<h3>SmtpSend</h3>
+	<div class="indent">
+		<p>
+		<code>bool SmtpSend(
+string
+$header, string
+$body)</code>
+		</p>
+	
+		<p class="linenumber">[line 726]</p>
+		<p align="center"><strong>Sends mail via SMTP using PhpSMTP  Returns false if there is a bad MAIL FROM, RCPT, or DATA input.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - protected</li>
+	<li><b>uses</b> - SMTP</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$header</b> 
+		- 
+		The message headers</li>
+			<li>
+		<span class="type">string</span>
+		<b>$body</b> 
+		- 
+		The message body</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodTextLine"></a>
+	<p></p>
+	<h3>TextLine</h3>
+	<div class="indent">
+		<p>
+		<code>string TextLine(
+
+$value)</code>
+		</p>
+	
+		<p class="linenumber">[line 1331]</p>
+		<p align="center"><strong>Returns a formatted mail line.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$value</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodUTF8CharBoundary"></a>
+	<p></p>
+	<h3>UTF8CharBoundary</h3>
+	<div class="indent">
+		<p>
+		<code>int UTF8CharBoundary(
+string
+$encodedText, int
+$maxLength)</code>
+		</p>
+	
+		<p class="linenumber">[line 1021]</p>
+		<p align="center"><strong>Finds last character boundary prior to maxLength in a utf-8  quoted (printable) encoded string.
+</strong></p>
+<p>Original written by Colin Brown.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$encodedText</b> 
+		- 
+		utf-8 QP text</li>
+			<li>
+		<span class="type">int</span>
+		<b>$maxLength</b> 
+		- 
+		find last character boundary prior to this length</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodWrapText"></a>
+	<p></p>
+	<h3>WrapText</h3>
+	<div class="indent">
+		<p>
+		<code>string WrapText(
+string
+$message, integer
+$length, [boolean
+$qp_mode = false])</code>
+		</p>
+	
+		<p class="linenumber">[line 939]</p>
+		<p align="center"><strong>Wraps message for use with mailers that do not  automatically perform wrapping and for quoted-printable.
+</strong></p>
+<p>Original written by philippe.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type">string</span>
+		<b>$message</b> 
+		- 
+		The message to wrap</li>
+			<li>
+		<span class="type">integer</span>
+		<b>$length</b> 
+		- 
+		The line length to wrap to</li>
+			<li>
+		<span class="type">boolean</span>
+		<b>$qp_mode</b> 
+		- 
+		Whether to run in Quoted-Printable mode</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_consts"></a>
+	<h2>Class Constants</h2>
+		<a name="constSTOP_CONTINUE"></a>
+	<p></p>
+	<h4>STOP_CONTINUE = <span class="value">&nbsp;1</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 352]</p>
+			</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="constSTOP_CRITICAL"></a>
+	<p></p>
+	<h4>STOP_CRITICAL = <span class="value">&nbsp;2</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 353]</p>
+			</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="constSTOP_MESSAGE"></a>
+	<p></p>
+	<h4>STOP_MESSAGE = <span class="value">&nbsp;0</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 351]</p>
+			</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+</div>
+	<div id="credit">
+		<hr>
+		Documentation generated on Sat, 22 Jan 2011 15:54:10 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	</div>
+</div>
+</body>
+</html>

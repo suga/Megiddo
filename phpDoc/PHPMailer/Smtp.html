@@ -1,0 +1,632 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Docs For Class Smtp</title>
+	<link rel="stylesheet" type="text/css" id="layout" href="../media/layout.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../media/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../media/print.css" media="print">
+</head>
+
+<body>
+<div id="header">
+	<div id="navLinks">
+        
+                                                        
+                            	        [ <a href="../classtrees_PHPMailer.html">Class Tree: PHPMailer</a> ]
+            [ <a href="../elementindex_PHPMailer.html">Index: PHPMailer</a> ]
+        		[ <a href="../elementindex.html">All elements</a> ]		
+	</div>
+	<div id="packagePosition">
+		<div id="packageTitle2">PHPMailer</div>
+		<div id="packageTitle">PHPMailer</div>
+		<div id="elementPath"> &middot; </div>
+	</div>
+</div>
+
+<div id="nav" class="small">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	<div id="packages">
+		Packages:
+					<p><a href="../li_default.html">default</a></p>
+					<p><a href="../li_PHPMailer.html">PHPMailer</a></p>
+			</div>
+
+				<div id="index">
+			<div id="files">
+								Files:<br>
+								<a href="../PHPMailer/_Email---Phpmailer.php.html">		Phpmailer.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Pop3.php.html">		Pop3.php
+		</a><br>
+			<a href="../PHPMailer/_Email---Smtp.php.html">		Smtp.php
+		</a><br>
+				</div>
+			<div id="interfaces">
+							</div>
+			<div id="classes">
+				Classes:<br>
+								<a href="../PHPMailer/Phpmailer.html">		Phpmailer
+		</a><br>
+			<a href="../PHPMailer/phpmailerException.html">		phpmailerException
+		</a><br>
+			<a href="../PHPMailer/Pop3.html">		Pop3
+		</a><br>
+			<a href="../PHPMailer/Smtp.html">		Smtp
+		</a><br>
+				</div>
+		</div>
+	</div>
+
+<div id="body">
+	    		<h1>Class: Smtp</h1>
+	<p style="margin: 0px;">Source Location: /Email/Smtp.php</p>
+	
+
+<div class="leftcol">
+	<h3><a href="#class_details">Class Overview</a> <span class="smalllinenumber">[line 49]</span></h3>
+	<div id="classTree"><pre></pre>
+</div>
+	<div class="small">
+	<p>SMTP is rfc 821 compliant and implements all the rfc 821 SMTP  commands except TURN which will always return a not implemented  error. SMTP also provides some utility methods for sending mail  to an SMTP server.</p>
+		<h4>Author(s):</h4>
+	<ul>
+			</ul>
+	<h4>Version:</h4>
+	<ul>
+			</ul>
+
+	<h4>Copyright:</h4>
+	<ul>
+			</li>
+	</div>
+</div>
+
+<div class="middlecol">
+	<h3><a href="#class_vars">Variables</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Smtp.html#var$CRLF">$CRLF</a></li>
+				<li><a href="../PHPMailer/Smtp.html#var$do_debug">$do_debug</a></li>
+				<li><a href="../PHPMailer/Smtp.html#var$do_verp">$do_verp</a></li>
+				<li><a href="../PHPMailer/Smtp.html#var$SMTP_PORT">$SMTP_PORT</a></li>
+			</ul>
+	<h3><a href="#class_consts">Constants</a></h3>
+	<ul class="small">
+			</ul>
+</div>
+<div class="rightcol">
+	<h3><a href="#class_methods">Methods</a></h3>
+	<ul class="small">
+				<li><a href="../PHPMailer/Smtp.html#method__construct">__construct</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodAuthenticate">Authenticate</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodClose">Close</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodConnect">Connect</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodConnected">Connected</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodData">Data</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodgetError">getError</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodHello">Hello</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodMail">Mail</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodQuit">Quit</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodRecipient">Recipient</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodReset">Reset</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodSendAndMail">SendAndMail</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodStartTLS">StartTLS</a></li>
+				<li><a href="../PHPMailer/Smtp.html#methodTurn">Turn</a></li>
+			</ul>
+</div>
+
+<div id="content">
+<hr>
+	<div class="contents">
+	</div>
+
+	<div class="leftCol">
+    	<h2>Inherited Variables</h2>
+		<h2>Inherited Constants</h2>
+		</div>
+
+	<div class="rightCol">
+	<h2>Inherited Methods</h2>
+		</div>
+	<br clear="all">
+	<hr>
+
+	<a name="class_details"></a>
+	<h2>Class Details</h2>
+	<p align="center"><strong>SMTP is rfc 821 compliant and implements all the rfc 821 SMTP  commands except TURN which will always return a not implemented  error. SMTP also provides some utility methods for sending mail  to an SMTP server.
+</strong></p>
+<p>original author: Chris Ryan</p>	<p class="small" style="color: #334B66;">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_vars"></a>
+	<h2>Class Variables</h2>
+		<a name="var$CRLF"></a>
+	<p></p>
+	<h4>$CRLF = <span class="value">&nbsp;&quot;\r\n&quot;</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 61]</p>
+		<p align="center"><strong>SMTP reply line ending
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> string</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$do_debug"></a>
+	<p></p>
+	<h4>$do_debug</h4>
+	<div class="indent">
+		<p class="linenumber">[line 67]</p>
+		<p align="center"><strong>Sets whether debugging is turned on
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$do_verp"></a>
+	<p></p>
+	<h4>$do_verp = <span class="value">&nbsp;false</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 74]</p>
+		<p align="center"><strong>Sets VERP use on/off (default is off)
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> bool</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="var$SMTP_PORT"></a>
+	<p></p>
+	<h4>$SMTP_PORT = <span class="value">&nbsp;25</span></h4>
+	<div class="indent">
+		<p class="linenumber">[line 55]</p>
+		<p align="center"><strong>SMTP server port
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		<p><b>Type:</b> int</p>
+		<p><b>Overrides:</b> </p>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_methods"></a>
+	<h2>Class Methods</h2>
+	
+	<a name="method__construct"></a>
+	<p></p>
+	<h3>__construct</h3>
+	<div class="indent">
+		<p>
+		<code>void __construct(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 93]</p>
+		<p align="center"><strong>Initialize the class so that the data is in a known state.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodAuthenticate"></a>
+	<p></p>
+	<h3>Authenticate</h3>
+	<div class="indent">
+		<p>
+		<code>bool Authenticate(
+
+$username, 
+$password)</code>
+		</p>
+	
+		<p class="linenumber">[line 213]</p>
+		<p align="center"><strong>Performs SMTP authentication.  Must be run after running the  Hello() method.  Returns true if successfully authenticated.
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$username</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$password</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodClose"></a>
+	<p></p>
+	<h3>Close</h3>
+	<div class="indent">
+		<p>
+		<code>void Close(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 287]</p>
+		<p align="center"><strong>Closes the socket and cleans up the state of the class.
+</strong></p>
+<p>It is not considered good to use this function without  first trying to use QUIT.</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodConnect"></a>
+	<p></p>
+	<h3>Connect</h3>
+	<div class="indent">
+		<p>
+		<code>bool Connect(
+
+$host, [
+$port = 0], [
+$tval = 30])</code>
+		</p>
+	
+		<p class="linenumber">[line 119]</p>
+		<p align="center"><strong>Connect to the server specified on the port specified.
+</strong></p>
+<p>If the port is not specified use the default SMTP_PORT.  If tval is specified then a connection will try and be  established with the server for that number of seconds.  If tval is not specified the default is 30 seconds to  try on the connection.</p><p>SMTP CODE SUCCESS: 220  SMTP CODE FAILURE: 421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$host</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$port</b> 
+		- 
+		</li>
+			<li>
+		<span class="type"></span>
+		<b>$tval</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodConnected"></a>
+	<p></p>
+	<h3>Connected</h3>
+	<div class="indent">
+		<p>
+		<code>bool Connected(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 264]</p>
+		<p align="center"><strong>Returns true if connected to a server otherwise false
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodData"></a>
+	<p></p>
+	<h3>Data</h3>
+	<div class="indent">
+		<p>
+		<code>bool Data(
+
+$msg_data)</code>
+		</p>
+	
+		<p class="linenumber">[line 321]</p>
+		<p align="center"><strong>Issues a data command and sends the msg_data to the server
+</strong></p>
+<p>finializing the mail transaction. $msg_data is the message  that is to be send with the headers. Each header needs to be  on a single line followed by a &lt;CRLF&gt; with the message headers  and the message body being seperated by and additional &lt;CRLF&gt;.</p><p>Implements rfc 821: DATA &lt;CRLF&gt;</p><p>SMTP CODE INTERMEDIATE: 354      [data]      &lt;CRLF&gt;.&lt;CRLF&gt;      SMTP CODE SUCCESS: 250      SMTP CODE FAILURE: 552,554,451,452  SMTP CODE FAILURE: 451,554  SMTP CODE ERROR  : 500,501,503,421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$msg_data</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodgetError"></a>
+	<p></p>
+	<h3>getError</h3>
+	<div class="indent">
+		<p>
+		<code>array getError(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 749]</p>
+		<p align="center"><strong>Get the current error
+</strong></p>
+<h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodHello"></a>
+	<p></p>
+	<h3>Hello</h3>
+	<div class="indent">
+		<p>
+		<code>bool Hello(
+[
+$host = ''])</code>
+		</p>
+	
+		<p class="linenumber">[line 452]</p>
+		<p align="center"><strong>Sends the HELO command to the smtp server.
+</strong></p>
+<p>This makes sure that we and the server are in  the same known state.</p><p>Implements from rfc 821: HELO &lt;SP&gt; &lt;domain&gt; &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250  SMTP CODE ERROR  : 500, 501, 504, 421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$host</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodMail"></a>
+	<p></p>
+	<h3>Mail</h3>
+	<div class="indent">
+		<p>
+		<code>bool Mail(
+
+$from)</code>
+		</p>
+	
+		<p class="linenumber">[line 519]</p>
+		<p align="center"><strong>Starts a mail transaction from the email address specified in  $from. Returns true if successful or false otherwise. If True  the mail transaction is started and then one or more Recipient  commands may be called followed by a Data command.
+</strong></p>
+<p>Implements rfc 821: MAIL &lt;SP&gt; FROM:&lt;reverse-path&gt; &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250  SMTP CODE SUCCESS: 552,451,452  SMTP CODE SUCCESS: 500,501,421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$from</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodQuit"></a>
+	<p></p>
+	<h3>Quit</h3>
+	<div class="indent">
+		<p>
+		<code>bool Quit(
+[
+$close_on_error = true])</code>
+		</p>
+	
+		<p class="linenumber">[line 559]</p>
+		<p align="center"><strong>Sends the quit command to the server and then closes the socket  if there is no error or the $close_on_error argument is true.
+</strong></p>
+<p>Implements from rfc 821: QUIT &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 221  SMTP CODE ERROR  : 500</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$close_on_error</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodRecipient"></a>
+	<p></p>
+	<h3>Recipient</h3>
+	<div class="indent">
+		<p>
+		<code>bool Recipient(
+
+$to)</code>
+		</p>
+	
+		<p class="linenumber">[line 610]</p>
+		<p align="center"><strong>Sends the command RCPT to the SMTP server with the TO: argument of $to.
+</strong></p>
+<p>Returns true if the recipient was accepted false if it was rejected.</p><p>Implements from rfc 821: RCPT &lt;SP&gt; TO:&lt;forward-path&gt; &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250,251  SMTP CODE FAILURE: 550,551,552,553,450,451,452  SMTP CODE ERROR  : 500,501,503,421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$to</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodReset"></a>
+	<p></p>
+	<h3>Reset</h3>
+	<div class="indent">
+		<p>
+		<code>bool Reset(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 650]</p>
+		<p align="center"><strong>Sends the RSET command to abort and transaction that is  currently in progress. Returns true if successful false  otherwise.
+</strong></p>
+<p>Implements rfc 821: RSET &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250  SMTP CODE ERROR  : 500,501,504,421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodSendAndMail"></a>
+	<p></p>
+	<h3>SendAndMail</h3>
+	<div class="indent">
+		<p>
+		<code>bool SendAndMail(
+
+$from)</code>
+		</p>
+	
+		<p class="linenumber">[line 695]</p>
+		<p align="center"><strong>Starts a mail transaction from the email address specified in
+</strong></p>
+<p>$from. Returns true if successful or false otherwise. If True  the mail transaction is started and then one or more Recipient  commands may be called followed by a Data command. This command  will send the message to the users terminal if they are logged  in and send them an email.</p><p>Implements rfc 821: SAML &lt;SP&gt; FROM:&lt;reverse-path&gt; &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250  SMTP CODE SUCCESS: 552,451,452  SMTP CODE SUCCESS: 500,501,502,421</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+			<li>
+		<span class="type"></span>
+		<b>$from</b> 
+		- 
+		</li>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodStartTLS"></a>
+	<p></p>
+	<h3>StartTLS</h3>
+	<div class="indent">
+		<p>
+		<code>bool StartTLS(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 173]</p>
+		<p align="center"><strong>Initiate a TLS communication with the server.
+</strong></p>
+<p>SMTP CODE 220 Ready to start TLS  SMTP CODE 501 Syntax error (no parameters allowed)  SMTP CODE 454 TLS not available due to temporary reason</p><h4>Tags:</h4>
+<ul>
+	<li><b>return</b> - success</li>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+	<a name="methodTurn"></a>
+	<p></p>
+	<h3>Turn</h3>
+	<div class="indent">
+		<p>
+		<code>bool Turn(
+)</code>
+		</p>
+	
+		<p class="linenumber">[line 736]</p>
+		<p align="center"><strong>This is an optional command for SMTP that this class does not  support. This method is here to make the RFC821 Definition  complete for this class and __may__ be implimented in the future
+</strong></p>
+<p>Implements from rfc 821: TURN &lt;CRLF&gt;</p><p>SMTP CODE SUCCESS: 250  SMTP CODE FAILURE: 502  SMTP CODE ERROR  : 500, 503</p><h4>Tags:</h4>
+<ul>
+	<li><b>access</b> - public</li>
+</ul>
+		
+	
+	<h4>Parameters:</h4>
+	<ul>
+		</ul>
+	</div>
+	<p class="top">[ <a href="#top">Top</a> ]</p>
+
+	<hr>
+	<a name="class_consts"></a>
+	<h2>Class Constants</h2>
+	</div>
+	<div id="credit">
+		<hr>
+		Documentation generated on Sat, 22 Jan 2011 15:54:14 -0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	</div>
+</div>
+</body>
+</html>
