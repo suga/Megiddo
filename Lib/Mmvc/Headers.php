@@ -4,7 +4,7 @@
  * @author Marco Antonio Sugamele <marco@iaol.com.br>
  * @since 16/05/2010
  * Facilitates some html commands
- * Last revision : 16/05/2010
+ * Last revision : 14/02/2010
  */
 class Headers {
 

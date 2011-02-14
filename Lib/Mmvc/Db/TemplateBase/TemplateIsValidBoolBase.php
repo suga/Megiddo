@@ -5,11 +5,14 @@
      * @return boolean
      */
     public function is[%nameMethod%]Valid($[%variable%] = null) {
-        if (!empty($[%variable%])) {
-            return is_bool($[%variable%]);
+        if (!empty($[%variable%])) {            
+            if($[%variable%] !=0 || $[%variable%]!= 1){
+            	return is_bool($[%variable%]);
+            }
+            return true;
         }
         
-        return is_bool($this->[%variable%]);
+        return true;
         
     }
     

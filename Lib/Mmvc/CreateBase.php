@@ -46,6 +46,11 @@ class CreateBase {
      * @var String
      */
     private $stringTemplate;
+    
+    /**
+     * @var String
+     */
+    private $stringTemplateNoRequire;
 
     /**
      * @var String
@@ -76,6 +81,16 @@ class CreateBase {
      * @var String
      */
     private $setTemplate;
+    
+    /**
+     * @var String
+     */
+    private $setNoRequireTemplate;
+    
+     /**
+     * @var String
+     */
+    private $setDateTemplate;
 
     /**
      * @var String
@@ -96,6 +111,11 @@ class CreateBase {
      * @var String
      */
     private $getTemplate;
+    
+    /**
+     * @var String
+     */
+    private $getDateTemplate;
 
     /**
      * @var String
@@ -152,16 +172,20 @@ class CreateBase {
         $this->fkTemplate = $path . "TemplateIsValidFkBase.php";
         $this->intTemplate = $path . "TemplateIsValidIntBase.php";
         $this->stringTemplate = $path . "TemplateIsValidStringBase.php";
+        $this->stringTemplateNoRequire = $path. "TemplateIsValidStringNoRequireBase.php";
         $this->boolTemplate = $path . "TemplateIsValidBoolBase.php";
         $this->rtTemplate = $path . "TemplateRetrivePkBase.php";
         $this->delTemplate = $path . "TemplateDeleteBase.php";
         $this->setPkTemplate = $path . "TemplateSetPkBase.php";
         $this->setFkTemplate = $path . "TemplateSetFkBase.php";
         $this->setTemplate = $path . "TemplateSetBase.php";
+        $this->setNoRequireTemplate = $path . "TemplateNoRequireSetBase.php";
+        $this->setDateTemplate = $path . "TemplateSetDateBase.php";
         $this->getPkTemplate = $path . "TemplateGetPkBase.php";
         $this->getPkFkTemplate = $path . "TemplateGetPkFkBase.php";
         $this->getFkTemplate = $path . "TemplateGetFkBase.php";
         $this->getTemplate = $path . "TemplateGetBase.php";
+        $this->getDateTemplate = $path . "TemplateGetDateBase.php";
         $this->startTemplate = $path . "TemplateConvertingObjectStartBase.php";
         $this->endTemplate = $path . "TemplateConvertingObjectEndBase.php";
         $this->pkTemplateConvertingObject = $path . "TemplateConvertingObjectPkBase.php";
@@ -296,6 +320,7 @@ class CreateBase {
                             
                             break;
                         case 'string' :
+                        case 'date' :
                             $private = str_replace("[%return%]", 'String', $private);
                             $private = str_replace("[%variable%]", $this->returnVaribleName($variable), $private);
                             break;
@@ -353,9 +378,7 @@ class CreateBase {
                         case 'int' :
                             $int = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->intTemplate));
                             $int = str_replace("[%variable%]", $this->returnVaribleName($variable), $int);
-                            $int = str_replace("[%nameMethod%]", $this->returnClassName($variable), $int);
-                            $int = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $int);
-                            $int = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $int);
+                            $int = str_replace("[%nameMethod%]", $this->returnClassName($variable), $int);                            
                             break;
                         case 'pk' :
                             $pk = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->pkTemplate));
@@ -370,18 +393,22 @@ class CreateBase {
                             $fk = str_replace("[%obj%]", ucfirst($infoClass['obj']), $fk);
                             break;
                         case 'string' :
-                            $string = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->stringTemplate));
+                        	$template = $this->stringTemplateNoRequire;
+                        	if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                        		$template = $this->stringTemplate;
+                        	}
+                            $string = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($template));
                             $string = str_replace("[%variable%]", $this->returnVaribleName($variable), $string);
                             $string = str_replace("[%nameMethod%]", $this->returnClassName($variable), $string);
-                            $string = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $string);
-                            $string = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $string);
+                            if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                            	$string = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $string);
+                            	$string = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $string);
+                            }
                             break;
                         case 'bool' :
                             $bool = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->boolTemplate));
                             $bool = str_replace("[%variable%]", $this->returnVaribleName($variable), $bool);
-                            $bool = str_replace("[%nameMethod%]", $this->returnClassName($variable), $bool);
-                            $bool = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $bool);
-                            $bool = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $bool);
+                            $bool = str_replace("[%nameMethod%]", $this->returnClassName($variable), $bool);                            
                             break;
                         default :
                             break;
@@ -513,6 +540,7 @@ class CreateBase {
         $setpk = '';
         $setfk = '';
         $set = '';
+        $setDate = '';
         foreach ($infoClass as $index => $info) {
             switch ($index) {
                 case "type" :
@@ -529,8 +557,18 @@ class CreateBase {
                             $setfk = str_replace("[%obj%]", $infoClass['obj'], $setfk);
                             $setfk = str_replace("[%objLower%]", $this->firstLower($infoClass['obj']), $setfk);
                             break;
+                        case 'date' :
+                        	$setDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->setDateTemplate));
+                            $setDate = str_replace("[%nameMethod%]", $this->returnClassName($variable), $setDate);
+                            $setDate = str_replace("[%doc%]", $infoClass['doc'], $setDate);
+                            $setDate = str_replace("[%type%]", 'String', $setDate);
+                        	break;    
                         default :
-                            $set = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->setTemplate));
+                        	$template = $this->setNoRequireTemplate;
+                        	if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                        			$template = $this->setTemplate;
+                        	}
+                            $set = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($template));
                             $set = str_replace("[%nameMethod%]", $this->returnClassName($variable), $set);
                             $set = str_replace("[%doc%]", $infoClass['doc'], $set);
                             $set = str_replace("[%type%]", $info, $set);
@@ -540,7 +578,7 @@ class CreateBase {
                     break;
             }
         }
-        return $setpk . $setfk . $set;
+        return $setpk . $setfk . $setDate . $set;
     }
 
     /**
@@ -573,6 +611,7 @@ class CreateBase {
         $getpk = '';
         $getfk = '';
         $get = '';
+        $getDate = '';
         foreach ($infoClass as $index => $info) {
             switch ($index) {
                 case "type" :
@@ -602,6 +641,11 @@ class CreateBase {
                             $getfk = str_replace("[%objLower%]", $this->firstLower($infoClass['obj']), $getfk);
                             $getfk = str_replace("[%type%]", $info, $getfk);
                             break;
+                        case 'date':
+                        	$getDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->getDateTemplate));
+                            $getDate = str_replace("[%nameMethod%]", $this->returnClassName($variable), $getDate);
+                            $getDate = str_replace("[%type%]", $info, $getDate);
+                            break;
                         default :
                             $get = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->getTemplate));
                             $get = str_replace("[%nameMethod%]", $this->returnClassName($variable), $get);
@@ -612,7 +656,7 @@ class CreateBase {
                     break;
             }
         }
-        return $getpk . $getfk . $get;
+        return $getpk . $getfk . $getDate. $get;
     }
 
     /**
@@ -777,7 +821,7 @@ class CreateBase {
      * @param array $infoClass
      * @return array
      */
-    private function isFk($rows) {
+	private function isFk($rows) {
         $isFk = array();
         $isFk['pkfk'] = false;
         foreach ($rows as $index => $infoClass) {
@@ -788,10 +832,13 @@ class CreateBase {
             if (!is_array($infoClass)) {
                 continue;
             }
-            if ((bool)in_array('fk', $infoClass)) {
-                $isFk['variable'] = $index;
-                $isFk['obj'] = $infoClass['obj'];
-                $isFk['pkfk'] = true;
+            
+            if (is_array($index) && array_key_exists('type', $index)) {
+                if ($index['type'] == 'fk' && array_key_exists('obj', $infoClass)) {
+                    $isFk['obj'] = $infoClass['obj'];
+                    $isFk['variable'] = $index;
+                    $isFk['pkfk'] = true;
+                }
             }
         }
         return $isFk;
