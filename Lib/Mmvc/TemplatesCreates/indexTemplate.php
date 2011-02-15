@@ -1,0 +1,1 @@
+To pass a variable from the action to the template, the action set the variable $ this->nameVariable,  and capture nameVariable as follows in template, $var->nameVariable

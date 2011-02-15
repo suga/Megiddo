@@ -5,6 +5,7 @@ PhpMailer integrado
 sfTCPDF integrado
 ORM própria - buildBase.php
 Banco de dados suportados -> mysq e pgsql
+Criador de Módulos -> buildModule.php
 ---------
 
 Megiddo is an MVC Framework.
@@ -14,3 +15,4 @@ PHPMailer integrated
 sfTCPDF integrated
 ORM itself - buildBase.php
 Supported databases -> mysq and pgsql
+Creator Modules -> buildModule.php
