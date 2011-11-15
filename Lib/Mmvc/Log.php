@@ -70,6 +70,23 @@ class Log extends LogPeer {
         return $objLog->doSelect($criteria);
     }
 
+    
+	/**
+     * Returns the log object      
+     * @param integer  $limit
+     * @return Object
+     */
+    public function getLogDesc($limit = null) {
+        $criteria = new Criteria();
+        $criteria->addNotWhere();
+        if (!is_null($limit)) {
+            $criteria->setLimit($limit);
+        }
+        $criteria->addOrderBy(LogPeer::ID, 'DESC');
+        $objLog = new Log();
+        return $objLog->doSelect($criteria);
+    }
+    
     /**
      * Logging the message in the system
      * @param string $file

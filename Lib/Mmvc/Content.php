@@ -31,8 +31,11 @@ class Content {
     /**
      * @var Array $attributeFlush
      */
-    private $attributeFlush = array();
+    private $attributeFlash = array();
 
+    /**
+     * @var Array $informationLoad
+     */
     private $InformationLoad = array();
 
     /**
@@ -133,11 +136,11 @@ class Content {
      * @param String $nameAttribute
      * @param String $valueAttribute
      */
-    public function setFlush($nameAttribute, $valueAttribute = null) {
+    public function setFlash($nameAttribute, $valueAttribute = null) {
         if (empty($nameAttribute)) {
             return false;
         }
-        $this->attributeFlush[$nameAttribute] = $valueAttribute;
+        $this->attributeFlash[$nameAttribute] = $valueAttribute;
     }
 
     /**
@@ -145,13 +148,13 @@ class Content {
      * @param String $nameAttribute
      * @return String
      */
-    public function getFlush($nameAttribute) {
-        if (!array_key_exists($nameAttribute, $this->attributeFlush)) {
+    public function getFlash($nameAttribute) {
+        if (!array_key_exists($nameAttribute, $this->attributeFlash)) {
             return null;
         }
         
-        $value = $this->attributeFlush[$nameAttribute];
-        $this->attributeFlush[$nameAttribute] = null;
+        $value = $this->attributeFlash[$nameAttribute];
+        $this->attributeFlash[$nameAttribute] = null;
         
         return $value;
     }
@@ -161,6 +164,17 @@ class Content {
      */
     public function setTemplate(Template $objTemplate) {
         $this->template = $objTemplate;
+    }
+
+    /**
+     * @return Template
+     */
+    public function setTemplateAction($action = null, $module = null) {
+        if (!$this->template instanceof Template) {
+            $this->template = new Template();
+        }
+        
+        $this->template->setTemplateAction($action, $module);
     }
 
     /**
@@ -187,6 +201,57 @@ class Content {
      */
     public function getInformationLoad() {
         return $this->InformationLoad;
+    }
+
+    /**
+     * Generates the name of Class
+     * @param string $nameTable
+     * @return String
+     */
+    public static function returnClassName($nameTable) {
+        if (empty($nameTable)) {
+            return false;
+        }
+        $class = '';
+        $className = explode('_', $nameTable);
+        if (count($className) <= 1) {
+            $class = ucfirst($className[0]);
+        }
+        
+        if (count($className) > 1) {
+            foreach ($className as $name) {
+                $class .= ucfirst($name);
+            }
+        }
+        return $class;
+    }
+
+    /**
+     * Generates the name of method
+     * @param string $variableRequestParameter
+     * @return String
+     */
+    public static function returnMethodName($variableRequestParameter) {
+        if (empty($variableRequestParameter)) {
+            return false;
+        }
+        $variable = '';
+        $variableName = explode('_', $variableRequestParameter);
+        if (count($variableName) <= 1) {
+            $variable = $variableName[0];
+        }
+        
+        if (count($variableName) > 1) {
+            foreach ($variableName as $index => $name) {
+                if ($index == 0) {
+                    $variable .= $name;
+                }
+                if ($index > 0) {
+                    $variable .= ucfirst($name);
+                }
+            }
+        }
+        return $variable;
     }
 
 }

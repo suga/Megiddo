@@ -15,7 +15,7 @@ function __autoload($class_name) {
     }
 }
 
-if (!$_SESSION['objContent']) {
+if (!array_key_exists('objContent', $_SESSION)) {
     $objContent = new Content();
     $_SESSION['objContent'] = serialize($objContent);
 }

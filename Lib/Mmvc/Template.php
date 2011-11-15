@@ -2,10 +2,10 @@
 
 class Template {
 
-	/**
-	 * Stores Module
-	 * @var String $module
-	 */
+    /**
+     * Stores Module
+     * @var String $module
+     */
     private $module;
 
     /**
@@ -58,7 +58,7 @@ class Template {
         }
         $layout = $this->checkLayout($nameLayout);
         $this->layout = $layout;
-        $this->setPathLayout($layout);
+        $this->setPathLayout($layout, $this->module);
     }
 
     /**
@@ -97,8 +97,8 @@ class Template {
      * Set Path Layout
      * @param String $nameLayout
      */
-    public function setPathLayout($nameLayout) {
-        $file = PATH . PATH_LAYOUTS . $this->module . "/" . $nameLayout . '.php';
+    public function setPathLayout($nameLayout, $module) {
+        $file = PATH . PATH_LAYOUTS . $module . "/" . $nameLayout . '.php';
         if (is_file($file)) {
             $this->pathLayout = $file;
         }
@@ -117,16 +117,44 @@ class Template {
      * Set the action name
      * @param string $action
      */
-    public function setAction($action) {
-        $this->action = preg_replace(array('/^[A-Z]/'), strtolower($action[0]), $action);
+    public function setAction($action = null) {
+        $this->action = null;
+        if (!empty($action)) {
+            $this->action = preg_replace(array(
+                            '/^[A-Z]/'), strtolower($action[0]), $action);
+        }
     }
 
     /**
      * Set the module name
      * @param string $module
      */
-    public function setModule($module) {
+    public function setModule($module = null) {
         $this->module = $module;
+    }
+
+    public function setTemplateAction($action = null, $module = null) {
+        $this->module = null;
+        $this->action = null;
+        
+        if (!empty($action) && !empty($module)) {
+            $this->action = $action;
+            $this->module = $module;
+        }
+    }
+
+    /**
+     * @return String
+     */
+    public function getModule() {
+        return $this->module;
+    }
+
+    /**
+     * @return String
+     */
+    public function getAction() {
+        return $this->action;
     }
 
     /**
@@ -142,7 +170,7 @@ class Template {
         }
         $layout = $this->checkLayoutPersonalite($nameLayout, $module);
         $this->layout = $layout;
-        $this->setPathLayout($layout);
+        $this->setPathLayout($layout, $module);
     }
 
     /**
@@ -153,7 +181,7 @@ class Template {
      */
     private function checkLayoutPersonalite($nameLayout, $module) {
         if (empty($nameLayout) || empty($module)) {
-        	$this->module = MODULE_DEFAULT;
+            $this->module = MODULE_DEFAULT;
             return self::getDefaultLayout();
         }
         
@@ -162,7 +190,7 @@ class Template {
         if (!is_file($file)) {
             return self::getDefaultLayout();
         }
-        $this->module = $module;
+        //$this->module = $module;
         return $nameLayout;
     
     }

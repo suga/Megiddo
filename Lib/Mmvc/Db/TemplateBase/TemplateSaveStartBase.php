@@ -6,9 +6,9 @@
     public function save() {
         $data = array(
                         [%fields%]);
-        $sql = new Sql();
+        $sql = $this->instanceSql();
         
-        $instance = self::retriveByPk($this->[%variable%]);
+        $instance = self::retriveByPk($this->[%variable%], $sql);
         $instance = $instance instanceof [%className%];
         
         if (is_null($this->[%variable%]) || !$instance) {

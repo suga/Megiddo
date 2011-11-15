@@ -46,7 +46,7 @@ class CreateBase {
      * @var String
      */
     private $stringTemplate;
-    
+
     /**
      * @var String
      */
@@ -81,13 +81,13 @@ class CreateBase {
      * @var String
      */
     private $setTemplate;
-    
+
     /**
      * @var String
      */
     private $setNoRequireTemplate;
-    
-     /**
+
+    /**
      * @var String
      */
     private $setDateTemplate;
@@ -111,7 +111,7 @@ class CreateBase {
      * @var String
      */
     private $getTemplate;
-    
+
     /**
      * @var String
      */
@@ -172,7 +172,7 @@ class CreateBase {
         $this->fkTemplate = $path . "TemplateIsValidFkBase.php";
         $this->intTemplate = $path . "TemplateIsValidIntBase.php";
         $this->stringTemplate = $path . "TemplateIsValidStringBase.php";
-        $this->stringTemplateNoRequire = $path. "TemplateIsValidStringNoRequireBase.php";
+        $this->stringTemplateNoRequire = $path . "TemplateIsValidStringNoRequireBase.php";
         $this->boolTemplate = $path . "TemplateIsValidBoolBase.php";
         $this->rtTemplate = $path . "TemplateRetrivePkBase.php";
         $this->delTemplate = $path . "TemplateDeleteBase.php";
@@ -219,7 +219,9 @@ class CreateBase {
     public function Create() {
         foreach ($this->schema as $table => $rows) {
             $class = $this->returnClassNameType('Base', $table);
+            $classPeer = $this->returnClassNameType('Peer', $table);
             $content = str_replace("[%nameClass%]", $class, $this->getContentTemplate($this->fileTemplateBase));
+            $content = str_replace("[%nameClassPeer%]", $classPeer, $content);
             $content = str_replace("[%table%]", $table, $content);
             $content = str_replace("[%consts%]", $this->returnConsts($rows), $content);
             $content = str_replace("[%privates%]", $this->returnPrivates($rows), $content);
@@ -241,8 +243,8 @@ class CreateBase {
                     continue;
                 }
             }
-           $fileName = $class.'.php'; 
-           WriteToFile::writeContent($content,CLASS_BASE,$fileName,true,true);
+            $fileName = $class . '.php';
+            WriteToFile::writeContent($content, CLASS_BASE, $fileName, true, true);
         }
     }
 
@@ -303,12 +305,15 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'int' :
+                        case 'integer' :
+                        case 'numeric' :
+                        case 'smallint' :
                             $private = str_replace("[%return%]", 'integer', $private);
                             $private = str_replace("[%variable%]", $this->returnVaribleName($variable), $private);
                             break;
                         case 'pk' :
+                        case 'serial' :
                         case 'fk' :
-                            
                             $private = str_replace("[%return%]", 'integer', $private);
                             $private = str_replace("[%variable%]", $this->returnVaribleName($variable), $private);
                             if (array_key_exists('obj', $infoClass)) {
@@ -320,11 +325,20 @@ class CreateBase {
                             
                             break;
                         case 'string' :
+                        case 'character varying' :
+                        case 'text' :
+                        case 'char' :
+                        case 'character' :
                         case 'date' :
+                        case 'timestamp without time zone' :
+                        case 'timestamp with time zone' :
+                        case 'time without time zone' :
+                        case 'time with time zone' :
                             $private = str_replace("[%return%]", 'String', $private);
                             $private = str_replace("[%variable%]", $this->returnVaribleName($variable), $private);
                             break;
                         case 'bool' :
+                        case 'boolean' :
                             $private = str_replace("[%return%]", 'Boolean', $private);
                             $private = str_replace("[%variable%]", $this->returnVaribleName($variable), $private);
                             break;
@@ -376,11 +390,15 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'int' :
+                        case 'integer' :
+                        case 'numeric' :
+                        case 'smallint' :
                             $int = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->intTemplate));
                             $int = str_replace("[%variable%]", $this->returnVaribleName($variable), $int);
-                            $int = str_replace("[%nameMethod%]", $this->returnClassName($variable), $int);                            
+                            $int = str_replace("[%nameMethod%]", $this->returnClassName($variable), $int);
                             break;
                         case 'pk' :
+                        case 'serial' :
                             $pk = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->pkTemplate));
                             $pk = str_replace("[%variable%]", $this->returnVaribleName($variable), $pk);
                             $pk = str_replace("[%nameMethod%]", $this->returnClassName($variable), $pk);
@@ -393,22 +411,27 @@ class CreateBase {
                             $fk = str_replace("[%obj%]", ucfirst($infoClass['obj']), $fk);
                             break;
                         case 'string' :
-                        	$template = $this->stringTemplateNoRequire;
-                        	if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
-                        		$template = $this->stringTemplate;
-                        	}
+                        case 'character varying' :
+                        case 'text' :
+                        case 'char' :
+                        case 'character' :
+                            $template = $this->stringTemplateNoRequire;
+                            if (array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                                $template = $this->stringTemplate;
+                            }
                             $string = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($template));
                             $string = str_replace("[%variable%]", $this->returnVaribleName($variable), $string);
                             $string = str_replace("[%nameMethod%]", $this->returnClassName($variable), $string);
-                            if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
-                            	$string = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $string);
-                            	$string = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $string);
+                            if (array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                                $string = str_replace("[%sizeMax%]", (int)$infoClass['size_max'], $string);
+                                $string = str_replace("[%sizeMin%]", (int)$infoClass['size_min'], $string);
                             }
                             break;
                         case 'bool' :
+                        case 'boolean' :
                             $bool = str_replace("[%doc%]", ucfirst($infoClass['doc']), $this->getContentTemplate($this->boolTemplate));
                             $bool = str_replace("[%variable%]", $this->returnVaribleName($variable), $bool);
-                            $bool = str_replace("[%nameMethod%]", $this->returnClassName($variable), $bool);                            
+                            $bool = str_replace("[%nameMethod%]", $this->returnClassName($variable), $bool);
                             break;
                         default :
                             break;
@@ -452,6 +475,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             $rt = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->rtTemplate));
                             $rt = str_replace("[%constant%]", strtoupper($variable), $rt);
                             $rt = str_replace("[%obj%]", ucfirst($infoClass['obj']), $rt);
@@ -498,6 +522,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             $del = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->delTemplate));
                             $del = str_replace("[%constant%]", strtoupper($variable), $del);
                             break;
@@ -546,6 +571,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             $setpk = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->setPkTemplate));
                             $setpk = str_replace("[%nameMethod%]", $this->returnClassName($variable), $setpk);
                             $setpk = str_replace("[%obj%]", $infoClass['obj'], $setpk);
@@ -558,16 +584,20 @@ class CreateBase {
                             $setfk = str_replace("[%objLower%]", $this->firstLower($infoClass['obj']), $setfk);
                             break;
                         case 'date' :
-                        	$setDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->setDateTemplate));
+                        case 'timestamp without time zone' :
+                        case 'timestamp with time zone' :
+                        case 'time without time zone' :
+                        case 'time with time zone' :
+                            $setDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->setDateTemplate));
                             $setDate = str_replace("[%nameMethod%]", $this->returnClassName($variable), $setDate);
                             $setDate = str_replace("[%doc%]", $infoClass['doc'], $setDate);
                             $setDate = str_replace("[%type%]", 'String', $setDate);
-                        	break;    
+                            break;
                         default :
-                        	$template = $this->setNoRequireTemplate;
-                        	if(array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
-                        			$template = $this->setTemplate;
-                        	}
+                            $template = $this->setNoRequireTemplate;
+                            if (array_key_exists('require', $infoClass) && (bool)$infoClass['require']) {
+                                $template = $this->setTemplate;
+                            }
                             $set = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($template));
                             $set = str_replace("[%nameMethod%]", $this->returnClassName($variable), $set);
                             $set = str_replace("[%doc%]", $infoClass['doc'], $set);
@@ -617,6 +647,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             if (!$pkFk['pkfk']) {
                                 $getpk = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->getPkTemplate));
                                 $getpk = str_replace("[%nameMethod%]", $this->returnClassName($variable), $getpk);
@@ -641,8 +672,12 @@ class CreateBase {
                             $getfk = str_replace("[%objLower%]", $this->firstLower($infoClass['obj']), $getfk);
                             $getfk = str_replace("[%type%]", $info, $getfk);
                             break;
-                        case 'date':
-                        	$getDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->getDateTemplate));
+                        case 'date' :
+                        case 'timestamp without time zone' :
+                        case 'timestamp with time zone' :
+                        case 'time without time zone' :
+                        case 'time with time zone' :
+                            $getDate = str_replace("[%variable%]", $this->returnVaribleName($variable), $this->getContentTemplate($this->getDateTemplate));
                             $getDate = str_replace("[%nameMethod%]", $this->returnClassName($variable), $getDate);
                             $getDate = str_replace("[%type%]", $info, $getDate);
                             break;
@@ -656,7 +691,7 @@ class CreateBase {
                     break;
             }
         }
-        return $getpk . $getfk . $getDate. $get;
+        return $getpk . $getfk . $getDate . $get;
     }
 
     /**
@@ -700,6 +735,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             $pk = str_replace("[%variable%]", $variable, $this->getContentTemplate($this->pkTemplateConvertingObject));
                             $pk = str_replace("[%nameMethod%]", $this->returnClassName($variable), $pk);
                             break;
@@ -806,6 +842,7 @@ class CreateBase {
                 case "type" :
                     switch ($info) {
                         case 'pk' :
+                        case 'serial' :
                             $pk = $variable;
                             break;
                     }
@@ -821,7 +858,7 @@ class CreateBase {
      * @param array $infoClass
      * @return array
      */
-	private function isFk($rows) {
+    private function isFk($rows) {
         $isFk = array();
         $isFk['pkfk'] = false;
         foreach ($rows as $index => $infoClass) {

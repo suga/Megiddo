@@ -23,10 +23,10 @@ class ActionDefault extends Url {
         $this->var5 = $this->getRequestParameter('número');
         $this->var6 = $this->getRequestParameter('oba');
         $this->var7 = $objContent->getAttribute('teste');
-        $this->var8 = $objContent->getFlush('teste');
+        $this->var8 = $objContent->getFlash('teste');
         //$objContent->setAttribute('teste', null);
         $this->var9 = $objContent->getAttribute('teste');
-        $this->var10 = $objContent->getFlush('teste');
+        $this->var10 = $objContent->getFlash('teste');
         $this->culture = $objContent->getObjCulture()->getCulture();
         //$this->forward('Default','Index', $objContent);
     

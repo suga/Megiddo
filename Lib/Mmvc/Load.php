@@ -45,17 +45,28 @@ class Load {
             $var->preExecute($objContent);
         }
         
-        $returnAction = $var->$method($objContent);
+        $returnAction = $var->$method($objContent);        
+        
+        $moduleTemplate = $objContent->getObjTemplate()->getModule();
+        $moduleTemplate = empty($moduleTemplate) ? $module : $objContent->getObjTemplate()->getModule();
+        $actionTemplate = $objContent->getObjTemplate()->getAction();
+        $actionTemplate = empty($actionTemplate) ? $action : $objContent->getObjTemplate()->getAction();
+        if ($moduleTemplate != $module) {
+            $template->setModule($moduleTemplate);
+        }
+        if ($actionTemplate != $action) {
+            $template->setAction($actionTemplate);
+        }        
         
         $objContent->setHasLayout($returnAction);
         $objContent->typeLayout($returnAction);
         
         if ($returnAction == ViewActions::VIEW_SUCCESS || is_null($returnAction)) {
-            $file = PATH . PATH_TEMPLATES . $module . "/" . preg_replace(array('/^[A-Z]/'), strtolower($action[0]), $action) . ".php";
+            $file = PATH . PATH_TEMPLATES . $moduleTemplate . "/" . preg_replace(array('/^[A-Z]/'), strtolower($actionTemplate[0]), $actionTemplate) . ".php";
         }
         
         if ($returnAction == ViewActions::VIEW_ERROR) {
-            $file = PATH . PATH_TEMPLATES . $module . "/" . preg_replace(array('/^[A-Z]/'), strtolower($action[0]), $action) . "Error.php";
+            $file = PATH . PATH_TEMPLATES . $moduleTemplate . "/" . preg_replace(array('/^[A-Z]/'), strtolower($actionTemplate[0]), $actionTemplate) . "Error.php";
         }
         
         if ($returnAction != ViewActions::VIEW_NONE && !is_file($file)) {
@@ -75,6 +86,8 @@ class Load {
         if (method_exists($var, 'endExecute')) {
             $var->endExecute($objContent);
         }
+        
+        $objContent->getObjTemplate()->setTemplateAction(null, null);
         
         $_SESSION['objContent'] = serialize($objContent);
     }

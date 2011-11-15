@@ -6,13 +6,21 @@ sfTCPDF integrado
 ORM própria - buildBase.php
 Banco de dados suportados -> mysq e pgsql
 Criador de Módulos -> buildModule.php
+Criador de Schema -> buildSchema.php (pgsql)
+
+Se você utiliza Postgres, você pode executar o buildSchema, que irá ler seu banco de dados e criar o schema necessário. 
+Após criar o schema, você roda o buildBase.php que irá criar todas as classes necessárias para comunicação com o banco de dados.
+
 ---------
 
-Megiddo is an MVC Framework.
-Megiddo now has support for i18n.
-Schema in YML
-PHPMailer integrated
-sfTCPDF integrated
-ORM itself - buildBase.php
+Megiddo is a MVC Framework. 
+Megiddo has support for I18n.
+YML Schema Integrated
+PHPMailer Integrated
+sfTCPDF Integrated
+it's own ORM - buildBase.php
 Supported databases -> mysq and pgsql
-Creator Modules -> buildModule.php
+Module Creator -> buildModule.php
+
+If you use Postgres, you can run the buildSchema, which will read your database and create the necessary schema.
+After creating the schema, you run the buildBase.php that will create all the classes needed to communicate with the database.

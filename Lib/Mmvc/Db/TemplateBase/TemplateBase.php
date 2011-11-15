@@ -13,6 +13,23 @@ class [%nameClass%] extends AbstractBase implements Base {
     const TABLE = '[%table%]';    
     [%consts%]
     
+ 	/**
+     * Instance Sql
+     * @var Sql
+     */
+    private $instanceSql;
+    
+    /**
+     * Instance Sql
+     * @return Sql
+     */
+    protected function instanceSql() {
+    	if(!$this->instanceSql instanceof Sql) {
+    		$this->instanceSql = new Sql();
+    	}
+    	return $this->instanceSql;
+    }
+    
     [%privates%]
     
     [%sets%]
@@ -22,23 +39,29 @@ class [%nameClass%] extends AbstractBase implements Base {
     /**
      * Returns information from the database
      * @param Criteria $criteria
+     * @param Sql $instance
      * @return Array
      */
-    public function doSelect(Criteria $criteria) {
-        $sql = new Sql();
-        $stdClass = $sql->select($criteria, self::TABLE, false);
-        return !$stdClass ? false : $this->ConvertingArrayObject($stdClass);
+    public function doSelect(Criteria $criteria , $instance = null) {
+    	if(!$instance instanceof Sql){
+    		$instance = $this->instanceSql();
+        }
+        $stdClass = $instance->select($criteria, self::TABLE, false);
+        return !$stdClass ? false : $this->ConvertingArrayObject($stdClass, $instance);
     }
 
     /**
      * Returns only one information database
      * @param Criteria $criteria
+     * @param Sql $instance
      * @return ArrayObject
      */
-    public function doSelectOne(Criteria $criteria) {
-        $sql = new Sql();
-        $stdClass = $sql->select($criteria, self::TABLE, true);
-        return !$stdClass ? false : $this->ConvertingObject($stdClass);
+    public function doSelectOne(Criteria $criteria, $instance = null) {
+    	if(!$instance instanceof Sql){
+    		$instance = $this->instanceSql();
+        }
+        $stdClass = $instance->select($criteria, self::TABLE, true);
+        return !$stdClass ? false : $this->ConvertingObject($stdClass, $instance);
     }
     
     [%save%]
@@ -50,12 +73,16 @@ class [%nameClass%] extends AbstractBase implements Base {
     /**
      * Converts the object to the object class 
      * @param $arrayStdClass
+     * @param Sql $instance
      * @return ArrayObject
      */
-    private function ConvertingArrayObject(ArrayObject $arrayStdClass) {
-        $peer = new ArrayObject();
+    private function ConvertingArrayObject(ArrayObject $arrayStdClass, $instance = null) {
+    	if(!$instance instanceof Sql){
+    		$instance = $this->instanceSql();
+        }
+    	$peer = new ArrayObject();
         foreach ($arrayStdClass as $key => $objStdClass) {
-            $obj = $this->ConvertingObject($objStdClass);
+            $obj = $this->ConvertingObject($objStdClass, $instance);
             $peer[] = $obj;
         }
         return $peer;
@@ -68,9 +95,9 @@ class [%nameClass%] extends AbstractBase implements Base {
      * Retrive total Records
      */
     public static function getTotalRecords($criteria = null) {
-        $sql = new Sql();
-        $stdClass = $sql->count(self::TABLE, $criteria);
-        return $stdClass->total_records;
+        $repository = new [%nameClassPeer%]();
+    	$allResults = $repository->findAll();
+        return $allResults->count();
     }
     
     [%validates%]

@@ -42,7 +42,11 @@ class Url {
      * @return string
      */
     public function getModule() {
-        return $this->gets[0];
+        if(is_array($this->gets) && array_key_exists(0, $this->gets)){
+        	return $this->gets[0];
+        }
+        
+        return $this->gets[0] = MODULE_DEFAULT;
     }
 
     /**
@@ -106,10 +110,14 @@ class Url {
     /**
      * Fetch the url parameter coming
      * @param string $parameter
-     * @return string
+     * @return void
      */
-    public function getRequestParameter($parameter) {
+    public function getRequestParameter($parameter = null) {
         $arrayUrl = $this->getArrayUrl();
+        
+        if(empty($parameter)) {
+        	return $arrayUrl;
+        }
         
         if (!in_array($parameter, $arrayUrl)) {
             return null;

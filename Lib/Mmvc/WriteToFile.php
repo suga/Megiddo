@@ -71,7 +71,7 @@ class WriteToFile {
         }
         
         if ($overwrite && $replace) {
-            unlink($path . $fileName);
+            @unlink($path . $fileName);
         }
         
         $open = fopen($path . $fileName, $type);

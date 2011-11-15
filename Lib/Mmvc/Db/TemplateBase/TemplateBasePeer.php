@@ -53,6 +53,21 @@ class [%nameClassPeer%] extends [%nameClassBase%] implements Peer {
         $this->criteria->addNotWhere();
         return $this->getTotalRecords($this->criteria);
     }
+    
+    /**
+     * @param integer $limit
+     */
+    public function setLimit($limit = null) {
+    	$this->criteria->setLimit($limit);
+    }
+    
+	/**
+     *
+     * @param integer $offset
+     */
+    public function setOffset($offset = null) {
+        $this->criteria->setOffset ($offset);
+    }
 
     /**
      * Clears the search memory

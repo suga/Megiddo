@@ -13,6 +13,7 @@ user_document:
         type: string
         size_min: 10
         size_max: 15
+        require : true
 
 user_email:
     $doc$: Class responsible for user email

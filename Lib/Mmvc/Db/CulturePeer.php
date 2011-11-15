@@ -80,7 +80,7 @@ class CulturePeer {
     public function doSelectOne(Criteria $criteria) {
         $sql = new Sql();
         $stdClass = $sql->select($criteria, self::TABLE, true);
-        return !$stdClass ? false : self::ConvertingObject($stdClass);
+        return !$stdClass ? false : $this->ConvertingObject($stdClass);
     }
 
     /**
@@ -133,7 +133,7 @@ class CulturePeer {
     private function ConvertingArrayObject(ArrayObject $arrayStdClass) {
         $peer = new ArrayObject();
         foreach ($arrayStdClass as $key => $objStdClass) {
-            $obj = self::ConvertingObject($objStdClass);
+            $obj = $this->ConvertingObject($objStdClass);
             $peer[] = $obj;
         }
         return $peer;
@@ -147,7 +147,8 @@ class CulturePeer {
         $criteria = new Criteria();
         $criteria->add(self::DEFAULT_CULTURE, true);
         $criteria->setLimit(1);
-        $obj = self::doSelectOne($criteria);
+        $culture = new Culture();
+        $obj = $culture->doSelectOne($criteria);
         
         if (!$obj instanceof Culture) {
             return 'pt_BR';
@@ -164,7 +165,8 @@ class CulturePeer {
         $criteria = new Criteria();
         $criteria->add(self::ISOLANG, $isoLang);
         $criteria->setLimit(1);
-        $obj = self::doSelectOne($criteria);
+        $culture = new Culture();
+        $obj = $culture->doSelectOne($criteria);
         
         return $obj;
     }

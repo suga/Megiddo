@@ -6,7 +6,7 @@
     public function delete() {
         $pk = array(
                         self::[%constant%] => $this->[%variable%]);
-        $sql = new Sql();
+        $sql = $this->instanceSql();
         return $sql->delete(self::TABLE, $pk);
     }
     

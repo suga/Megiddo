@@ -15,7 +15,7 @@ function __autoload($class_name) {
     }
 }
 
-if($_POST['module']) {
+if(array_key_exists('module', $_POST)) {
 	$createModule = new CreateModule();
 	if($createModule->newModule($_POST['module'])) {
 		echo 'Module successfully created';
