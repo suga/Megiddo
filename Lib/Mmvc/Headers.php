@@ -38,7 +38,7 @@ class Headers {
         $url = explode($url->getModule() . '/' . $url->getAction(), $_SERVER['PHP_SELF']);
         $url = explode('index.php', $url[0]);
         
-        return "http://$host$url[0]/web/";
+        return "http://$host$url[0]web/";
     }
 
     /**
