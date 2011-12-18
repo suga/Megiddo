@@ -93,11 +93,13 @@ class [%nameClass%] extends AbstractBase implements Base {
     
     /**
      * Retrive total Records
+     * @param Criteria $criteria
      */
-    public static function getTotalRecords($criteria = null) {
+    public static function getTotalRecords(Criteria $criteria = null) {
         $repository = new [%nameClassPeer%]();
+        $repository->setCriteria($criteria);
     	$allResults = $repository->findAll();
-        return $allResults->count();
+    	return !$allResults ? 0 : $allResults->count();
     }
     
     [%validates%]

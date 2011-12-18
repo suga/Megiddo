@@ -42,5 +42,5 @@ interface Base {
     /**
      * Retrive total Records
      */
-    public static function getTotalRecords($criteria = null);
+    public static function getTotalRecords(Criteria $criteria = null);
 }
