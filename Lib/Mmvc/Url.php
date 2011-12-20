@@ -34,7 +34,10 @@ class Url {
         $uri = $_SERVER["REQUEST_URI"];
         $gets = explode("/", str_replace('=', '/', str_replace('&', '/', str_replace('.php?', '/', $uri))));
         array_shift($gets);
-        $this->gets = array_slice($gets, count(explode('/', $path)));
+        if($gets[0] == 'index.php') {
+            $gets = array_slice($gets, count(explode('/', $path)));
+        }
+        $this->gets = $gets;
     }
 
     /**
