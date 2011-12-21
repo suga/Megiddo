@@ -21,7 +21,7 @@ class TagI18nPeer {
     const ID_TAG_I18N = 'id_tag_i18n';
     const ID_TAG = 'id_tag';
     const ISOLANG = 'isolang';
-    const TRANSLATE = 'text';
+    const TRANSLATE = 'translate';
 
     //Methods Set
     
@@ -128,7 +128,7 @@ class TagI18nPeer {
      * @return bollean
      */
     public function save() {
-        $data = array(self::ID_TAG_I18N => $this->getIdTagI18n(), self::ID_TAG => $this->getIdTag(), self::ISOLANG, self::TRANSLATE);
+        $data = array(self::ID_TAG_I18N => $this->getIdTagI18n(), self::ID_TAG => $this->getIdTag(), self::ISOLANG=> $this->getIsoLang(), self::TRANSLATE => $this->getTranslate());
         $sql = new Sql();
         
         if (is_null($this->getIdTagI18n())) {
