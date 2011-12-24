@@ -89,7 +89,12 @@ class Load {
         
         $objContent->getObjTemplate()->setTemplateAction(null, null);
         
-        $_SESSION['objContent'] = serialize($objContent);
+        try{
+        	$_SESSION['objContent'] = serialize($objContent);
+        }catch (Exception $e) {
+        	$log = new Log();
+        	$log->setLog((__FILE__), ' The error occurred on line ' . (__LINE__) . ' - Serialize Session fail: [' . $file . '] - Message Error: '.$e->getMessage());
+        }
     }
 }
 
