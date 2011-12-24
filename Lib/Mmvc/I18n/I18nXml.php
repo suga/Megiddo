@@ -10,7 +10,7 @@ class I18nXml {
         $culture = $xmlDoc->appendChild($culture);
         
         $criteria = new Criteria();
-        $criteria->add(TagI18n::TABLE . TagI18n::ISOLANG, $isoLang);
+        $criteria->add(TagI18n::TABLE .'.'. TagI18n::ISOLANG, $isoLang);
         $objTagI18n = new TagI18nPeer();
         $arrayObjTagI18n = $objTagI18n->doSelect($criteria);
         

@@ -111,7 +111,7 @@ class TagPeer {
     private function ConvertingObject(stdClass $stdClass) {
         $ObjTagPeer = $this;
         $ObjTagPeer->setIdTag($stdClass->id_tag);
-        $ObjTagPeer->setTag($stdClass->tag);
+        $ObjTagPeer->setTagName($stdClass->tag);
         return $ObjTagPeer;
     }
 

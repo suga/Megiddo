@@ -64,7 +64,7 @@ class Tag extends TagPeer {
      */
     public function retriveByIdTag($id){
     	$criteria = new Criteria();
-        $criteria->add(self::TABLE . self::ID_TAG, $id);
+        $criteria->add(self::TABLE .'.'. self::ID_TAG, $id);
         $criteria->setLimit(1);
         $objTag = new Tag();
         $objTag->doSelectOne($criteria);
