@@ -133,12 +133,11 @@ class TagI18nPeer {
         
         if (is_null($this->getIdTagI18n())) {
             $sql->insert($data, self::TABLE);
-            $this->idTagI18n = $sql->lastRow(self::TABLE)->id_tag_i18n;
-            $this->idTag = $sql->lastRow(self::TABLE)->id_tag;
+            $this->idTagI18n = $sql->lastRow(self::TABLE) ? $sql->lastRow(self::TABLE)->id_tag_i18n : '';
+            $this->idTag = $sql->lastRow(self::TABLE) ? $sql->lastRow(self::TABLE)->id_tag : '';
             return true;
         } else {
-            $pk = array(self::ID_TAG_I18N => $this->getIdTagI18n());
-            
+            $pk = array(self::ID_TAG_I18N => $this->getIdTagI18n());            
             return $sql->update($data, self::TABLE, $pk);
         }
     
