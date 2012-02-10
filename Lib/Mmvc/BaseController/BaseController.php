@@ -12,6 +12,9 @@ class BaseController {
         Twig_Autoloader::register();
         
         $loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/templates');
+        if (!is_dir('/var/www/Megiddo/cache')) {
+            mkdir('/var/www/Megiddo/cache');
+        }
         $this->twigObject = new Twig_Environment($loader, array(
                 'cache' => '/var/www/Megiddo/cache',
         ));
