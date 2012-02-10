@@ -1,5 +1,5 @@
 <?php
-define('PATH','/home/marco/public_html/Megiddo/');
+define('PATH','/var/www/Megiddo/');
 define('MODULE_DEFAULT','Default');
 define('ACTION_DEFAULT','Index');
 define('PATH_TEMPLATES','Templates/');

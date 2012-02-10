@@ -10,6 +10,7 @@ final class Autoload {
     private $arrayClassName = array();
 
     public function __construct() {
+        $this->filesInArray('cache');
         $this->filesInArray('Lib');
         $this->filesInArray('Modules');
         $this->includePath();

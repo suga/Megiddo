@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 'ON');
 isset($_SESSION) ? '' : session_start();
 header('Content-type: text/html; charset=utf-8');
 require ("Config/path.php");

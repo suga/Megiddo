@@ -1,7 +1,7 @@
 <?php
-define('USER_DB','postgres');
-define('PASSWORD_DB','postgres');
-define('HOST_DB','localhost');
+define('USER_DB','root');
+define('PASSWORD_DB','vex2011');
+define('HOST_DB','127.0.0.1');
 define('DBNAME_DB','megiddo');
-define('TYPE_DB','pgsql');
+define('TYPE_DB','mysql');
 define('DNS',TYPE_DB.':host='.HOST_DB.';dbname='.DBNAME_DB);
