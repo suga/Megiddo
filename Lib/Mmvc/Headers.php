@@ -19,7 +19,6 @@ class Headers {
         $url = $_SERVER['SCRIPT_NAME'];
         $parameters = '';
         if (count($arrayParameters) > 0) {
-            $parameters = '/';
             foreach ($arrayParameters as $parameter => $value) {
                 $parameters .= '/' . $parameter . '/' . $value;
             }

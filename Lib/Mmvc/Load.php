@@ -80,7 +80,9 @@ class Load {
         
         $templateRead = new TemplateRead();
         $templateRead->getContentFromLayout($template->getPathLayout(), $var);
-        $templateRead->getContentFromTemplate($file, $var);
+        if(isset($file)) {
+        	$templateRead->getContentFromTemplate($file, $var);
+        }
         echo $templateRead->getContentFromMerge();
         
         if (method_exists($var, 'endExecute')) {
@@ -88,13 +90,13 @@ class Load {
         }
         
         $objContent->getObjTemplate()->setTemplateAction(null, null);
-        
-        try{
+
+        try {
         	$_SESSION['objContent'] = serialize($objContent);
         }catch (Exception $e) {
         	$log = new Log();
-        	$log->setLog((__FILE__), ' The error occurred on line ' . (__LINE__) . ' - Serialize Session fail: [' . $file . '] - Message Error: '.$e->getMessage());
-        }
+            $log->setLog((__FILE__), ' The error occurred on line ' . (__LINE__) . ' - Serialize Session fail: [' . $file . '] - Message Error: '.$e->getMessage());
+        }	
     }
 }
 
