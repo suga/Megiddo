@@ -63,10 +63,13 @@ class Headers {
      * @param String $module
      * @param String $file
      */
-    public static function linkToImage($module, $file) {
+    public static function linkToImage($module, $file, $inDirectory = null) {
         $urlWeb = self::linkToWeb();
-        $urlWeb .= $module . '/images/' . $file;
-        return $urlWeb;
+        if(is_null($inDirectory)) {
+        	return $urlWeb .= $module . '/images/' . $file;
+        }else {
+        	return $urlWeb .= $module . '/images/'.$inDirectory.'/'.$file;
+        }
     }
 
     /**
